@@ -1,0 +1,44 @@
+#---------------------------------- Output ------------------------------------
+#IMAGEOUT_NAME 		LABEL_10asec.fits
+#WEIGHTOUT_NAME 	LABEL_10asec.weight.fits
+
+COPY_KEYWORDS		MAGZPT, NSTAR, OBSNAME, DATE, MJD-INST, AZ-CMD, ALT-CMD, RA-CMD, DEC-CMD, CONTROLR, FLATFILE, DARKFILE, DARKSCAL, MASKFILE, SATURATE, SKYADU, EXPTIME, AIRMASS, HA, FILTER
+
+#------------------------------- Input Weights --------------------------------
+WEIGHT_TYPE 		NONE
+
+#------------------------------- Co-addition ----------------------------------
+COMBINE 			Y
+COMBINE_TYPE 		AVERAGE # This coaddition is for illustration
+
+#-------------------------------- Astrometry ----------------------------------
+CELESTIAL_TYPE		EQUATORIAL
+PROJECTION_TYPE		SIN
+CENTER_TYPE			MANUAL
+#CENTER 				0, -27
+PIXELSCALE_TYPE 	MANUAL	
+#PIXEL_SCALE			1.86 # arcseconds
+#IMAGE_SIZE			18000,18000
+
+#-------------------------------- Resampling ----------------------------------
+RESAMPLING_TYPE		BILINEAR
+OVERSAMPLING 		1
+INTERPOLATE 		N
+GAIN_KEYWORD 		GAIN
+GAIN_DEFAULT 		0.0
+
+#--------------------------- Background subtraction --------------------------- # No background subtraction
+SUBTRACT_BACK 		N 
+BACK_TYPE 			AUTO
+BACK_DEFAULT 		0.0 
+BACK_SIZE 			128 
+BACK_FILTERSIZE 	3
+
+#------------------------- Virtual memory management --------------------------
+VMEM_DIR 			.
+VMEM_MAX 			2047
+MEM_MAX 			2047 # 512 MB should be enough to avoid
+
+# swapping #------------------------------ Miscellaneous ---------------------------------
+DELETE_TMPFILES 	Y # Delete temporary resampled FITS files
+VERBOSE_TYPE 		NORMAL
