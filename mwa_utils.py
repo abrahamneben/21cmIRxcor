@@ -153,7 +153,7 @@ def img2PS(img,weight_img,pixsize_rad,nbins,lmax,backsub=False,hann=False):
     
     sub = 0
     if backsub: sub = img.mean()
-    print 'img.mean() = '+str(img.mean())
+    #print 'img.mean() = '+str(img.mean())
     img_ft = np.fft.fft2((img-sub)*w2)/norm
     weight_ft = np.abs(np.fft.fft2(weight_img*w2))
     
