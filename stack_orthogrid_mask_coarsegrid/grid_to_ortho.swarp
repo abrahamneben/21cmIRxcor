@@ -9,7 +9,7 @@ WEIGHT_TYPE 		NONE
 
 #------------------------------- Co-addition ----------------------------------
 COMBINE 			Y
-COMBINE_TYPE 		AVERAGE # This coaddition is for illustration
+COMBINE_TYPE 		AVERAGE # or, eg, MEDIAN
 
 #-------------------------------- Astrometry ----------------------------------
 CELESTIAL_TYPE		EQUATORIAL

@@ -3,7 +3,7 @@
 <VOTABLE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.1">
 <DESCRIPTION>produced by SWarp</DESCRIPTION>
 <!-- VOTable description at http://www.ivoa.net/Documents/latest/VOT.html -->
-<RESOURCE ID="SWarp" name="0372I_0373I_0374I_0375I_0376I.fits">
+<RESOURCE ID="SWarp" name="0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I.fits">
  <DESCRIPTION>Data related to SWarp</DESCRIPTION>
  <INFO name="QUERY_STATUS" value="OK" />
  <COOSYS ID="J2000" equinox="J2000" epoch="J2000" system="ICRS"/>
@@ -16,23 +16,23 @@
   <PARAM name="Soft_Auth" datatype="char" arraysize="*" ucd="meta.bib.author;meta.software" value="Emmanuel Bertin"/>
   <PARAM name="Soft_Ref" datatype="char" arraysize="*" ucd="meta.bib.bibcode;meta.software" value="2002ASPC..281..228B"/>
   <PARAM name="NThreads" datatype="int" ucd="meta.number;meta.software" value="4"/>
-  <PARAM name="Date" datatype="char" arraysize="*" ucd="time.event.end;meta.software" value="2016-10-20"/>
-  <PARAM name="Time" datatype="char" arraysize="*" ucd="time.event.end;meta.software" value="14:07:36"/>
-  <PARAM name="Duration" datatype="float" ucd="time.event;meta.software" value="96.25" unit="s"/>
+  <PARAM name="Date" datatype="char" arraysize="*" ucd="time.event.end;meta.software" value="2016-11-11"/>
+  <PARAM name="Time" datatype="char" arraysize="*" ucd="time.event.end;meta.software" value="21:13:43"/>
+  <PARAM name="Duration" datatype="float" ucd="time.event;meta.software" value="129.75" unit="s"/>
   <PARAM name="User" datatype="char" arraysize="*" ucd="meta.curation" value="abrahamn"/>
   <PARAM name="Host" datatype="char" arraysize="*" ucd="meta.curation" value="(null)"/>
-  <PARAM name="Path" datatype="char" arraysize="*" ucd="meta.dataset" value="/Users/abrahamn/21cm/21cmIR/2016/oct/stack_orthogrid_mask_coarsegrid"/>
-  <PARAM name="Image_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits" value="/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/0372I_0373I_0374I_0375I_0376I.fits"/>
+  <PARAM name="Path" datatype="char" arraysize="*" ucd="meta.dataset" value="/Users/abrahamn/21cmIR/21cmIRxcor/stack_orthogrid_mask_coarsegrid"/>
+  <PARAM name="Image_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits" value="/Volumes/abraham/xcor_data/analysis/ATLAS_mwa57694/0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I/0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I.fits"/>
   <PARAM name="Weight_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits" value="/dev/null"/>
-  <PARAM name="NOverlap_Max" datatype="int" ucd="meta.number;stat.max;obs.image" value="5"/>
-  <PARAM name="ExpTime_Max" datatype="float" ucd="time.expo;stat.max;obs.image" value="150" unit="s"/>
-  <PARAM name="Gain_Max" datatype="float" ucd="instr.calib;stat.max;obs.image" value="10.25" unit="photon/ADU"/>
+  <PARAM name="NOverlap_Max" datatype="int" ucd="meta.number;stat.max;obs.image" value="9"/>
+  <PARAM name="ExpTime_Max" datatype="float" ucd="time.expo;stat.max;obs.image" value="270" unit="s"/>
+  <PARAM name="Gain_Max" datatype="float" ucd="instr.calib;stat.max;obs.image" value="18.45" unit="photon/ADU"/>
   <TABLE ID="Input_Image_Data" name="Input_Image_Data">
    <DESCRIPTION>Data gathered by SWarp for every FITS input image</DESCRIPTION>
    <!-- NFrames may be 0 if an error occurred early in the processing -->
-   <PARAM name="NFrames" datatype="int" ucd="meta.number;meta.dataset" value="5"/>
+   <PARAM name="NFrames" datatype="int" ucd="meta.number;meta.dataset" value="9"/>
    <!-- CurrFrame may differ from NFrames if an error occurred -->
-   <PARAM name="CurrFrame" datatype="int" ucd="meta.number;meta.dataset" value="5"/>
+   <PARAM name="CurrFrame" datatype="int" ucd="meta.number;meta.dataset" value="9"/>
    <FIELD name="Frame_Index" datatype="int" ucd="meta.record"/>
    <FIELD name="Image_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits"/>
    <FIELD name="Weight_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits"/>
@@ -67,48 +67,84 @@
    <FIELD name="COOSYS" datatype="char" arraysize="*" ucd="meta.code;pos"/>
    <DATA><TABLEDATA>
     <TR>
-     <TD>1</TD><TD>/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0372I_original.fits</TD><TD>(null)</TD><TD>F</TD><TD>TA008S27</TD>
-     <TD>0</TD><TD>2016-10-20</TD><TD>14:06:06</TD><TD>6.00</TD>
-     <TD>307.859</TD><TD>14.0738</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>1</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0298I.fits</TD><TD>(null)</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:11:43</TD><TD>8.00</TD>
+     <TD>360.285</TD><TD>16.4089</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
      <TD>NONE</TD><TD>T</TD><TD>0</TD><TD>1</TD><TD>F</TD>
      <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
-     <TD>1.00492</TD><TD>6.541520302 -28.24281044</TD><TD>1.86499</TD><TD>2016.687056</TD><TD>2000</TD><TD>2000</TD>
+     <TD>0.999478</TD><TD>356.8233003 -25.07786226</TD><TD>1.86168</TD><TD>2016.83734</TD><TD>2000</TD><TD>2000</TD>
      <TD>ICRS</TD>
     </TR>
     <TR>
-     <TD>2</TD><TD>/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0373I_original.fits</TD><TD>Weightmap</TD><TD>F</TD><TD>TA008S27</TD>
-     <TD>0</TD><TD>2016-10-20</TD><TD>14:06:15</TD><TD>8.00</TD>
-     <TD>308.597</TD><TD>14.1122</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>2</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0302I.fits</TD><TD>Weightmap</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:11:52</TD><TD>9.00</TD>
+     <TD>348.539</TD><TD>16.2261</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
      <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
      <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
-     <TD>1.00488</TD><TD>6.536161292 -28.22287206</TD><TD>1.86498</TD><TD>2016.687058</TD><TD>2000</TD><TD>2000</TD>
+     <TD>0.999904</TD><TD>356.8266659 -24.47901137</TD><TD>1.86206</TD><TD>2016.837346</TD><TD>2000</TD><TD>2000</TD>
      <TD>ICRS</TD>
     </TR>
     <TR>
-     <TD>3</TD><TD>/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0374I_original.fits</TD><TD>filename</TD><TD>F</TD><TD>TA008S27</TD>
-     <TD>0</TD><TD>2016-10-20</TD><TD>14:06:23</TD><TD>8.00</TD>
-     <TD>309.931</TD><TD>14.1144</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>3</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0306I.fits</TD><TD>filename</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:00</TD><TD>8.00</TD>
+     <TD>341.776</TD><TD>16.0608</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
      <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
      <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
-     <TD>1.00499</TD><TD>6.556692884 -28.26385294</TD><TD>1.86502</TD><TD>2016.687059</TD><TD>2000</TD><TD>2000</TD>
+     <TD>1.00042</TD><TD>356.8299312 -23.88040458</TD><TD>1.86254</TD><TD>2016.837352</TD><TD>2000</TD><TD>2000</TD>
      <TD>ICRS</TD>
     </TR>
     <TR>
-     <TD>4</TD><TD>/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0375I_original.fits</TD><TD>if</TD><TD>F</TD><TD>TA008S27</TD>
-     <TD>0</TD><TD>2016-10-20</TD><TD>14:06:32</TD><TD>9.00</TD>
-     <TD>311.459</TD><TD>14.1358</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>4</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0318I.fits</TD><TD>if</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:09</TD><TD>8.00</TD>
+     <TD>338.245</TD><TD>16.0254</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
      <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
      <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
-     <TD>1.00501</TD><TD>6.560403063 -28.2044278</TD><TD>1.86501</TD><TD>2016.68706</TD><TD>2000</TD><TD>2000</TD>
+     <TD>0.99899</TD><TD>357.4849792 -25.07767886</TD><TD>1.86125</TD><TD>2016.83737</TD><TD>2000</TD><TD>2000</TD>
      <TD>ICRS</TD>
     </TR>
     <TR>
-     <TD>5</TD><TD>/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0376I_original.fits</TD><TD>suffix</TD><TD>F</TD><TD>TA008S27</TD>
-     <TD>0</TD><TD>2016-10-20</TD><TD>14:06:41</TD><TD>8.00</TD>
-     <TD>312.647</TD><TD>14.167</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>5</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0322I.fits</TD><TD>suffix</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:18</TD><TD>8.00</TD>
+     <TD>332.022</TD><TD>15.8605</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
      <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
      <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
-     <TD>1.00493</TD><TD>6.546261807 -28.2335375</TD><TD>1.865</TD><TD>2016.687062</TD><TD>2000</TD><TD>2000</TD>
+     <TD>0.999402</TD><TD>357.4851591 -24.47881946</TD><TD>1.86163</TD><TD>2016.837376</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>6</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0326I.fits</TD><TD>not</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:27</TD><TD>8.00</TD>
+     <TD>337.594</TD><TD>15.89</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999937</TD><TD>357.4853468 -23.87994569</TD><TD>1.86211</TD><TD>2016.837382</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>7</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0338I.fits</TD><TD>used</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:36</TD><TD>8.00</TD>
+     <TD>339.952</TD><TD>16.0552</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.998583</TD><TD>358.1466067 -25.07745575</TD><TD>1.86092</TD><TD>2016.837401</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>8</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0342I.fits</TD><TD>(null)</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:45</TD><TD>9.00</TD>
+     <TD>339.191</TD><TD>15.9981</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.99903</TD><TD>358.1438864 -24.47860677</TD><TD>1.8613</TD><TD>2016.837407</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>9</TD><TD>/Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0346I.fits</TD><TD>(null)</TD><TD>F</TD><TD>MWA-2.5-24.5</TD>
+     <TD>0</TD><TD>2016-11-11</TD><TD>21:12:54</TD><TD>9.00</TD>
+     <TD>336.415</TD><TD>15.8623</TD><TD>F</TD><TD>AUTO</TD><TD>128</TD><TD>3</TD><TD>0</TD>
+     <TD>NONE</TD><TD>F</TD><TD>0</TD><TD>1</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.99952</TD><TD>358.140994 -23.87948066</TD><TD>1.86178</TD><TD>2016.837413</TD><TD>2000</TD><TD>2000</TD>
      <TD>ICRS</TD>
     </TR>
    </TABLEDATA></DATA>
@@ -119,13 +155,14 @@
    <FIELD name="Time" datatype="char" arraysize="*" ucd="meta;time.event.end"/>
    <FIELD name="Msg" datatype="char" arraysize="*" ucd="meta"/>
    <DATA><TABLEDATA>
+    <TR><TD>2016-11-11</TD><TD>21:11:33</TD><TD>NOPENFILES_MAX larger than the system limit currently set at 256</TD></TR>
    </TABLEDATA></DATA>
   </TABLE>
   <RESOURCE ID="Config" name="Config">
    <DESCRIPTION>SWarp configuration</DESCRIPTION>
-   <PARAM name="Command_Line" datatype="char" arraysize="*" ucd="obs.param" value="swarp /Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0372I_original.fits /Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0373I_original.fits /Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0374I_original.fits /Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0375I_original.fits /Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/02a57639o0376I_original.fits -c grid_to_ortho.swarp -IMAGEOUT_NAME /Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/0372I_0373I_0374I_0375I_0376I.fits -WEIGHTOUT_NAME /dev/null -RESAMPLING_TYPE NEAREST -PIXEL_SCALE 1.86 -IMAGE_SIZE 29032,29032 -CENTER 0.0,-27"/>
+   <PARAM name="Command_Line" datatype="char" arraysize="*" ucd="obs.param" value="swarp /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0298I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0302I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0306I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0318I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0322I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0326I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0338I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0342I.fits /Volumes/abraham/xcor_data/ATLAS_mwa57694/02a57694o0346I.fits -c grid_to_ortho.swarp -IMAGEOUT_NAME /Volumes/abraham/xcor_data/analysis/ATLAS_mwa57694/0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I/0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I.fits -WEIGHTOUT_NAME /dev/null -RESAMPLING_TYPE NEAREST -PIXEL_SCALE 1.86 -IMAGE_SIZE 23225,23225 -CENTER 0.0,-27"/>
    <PARAM name="Prefs_Name" datatype="char" arraysize="*" ucd="obs.param;meta.file" value="grid_to_ortho.swarp"/>
-   <PARAM name="ImageOut_Name" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value="/Volumes/abraham/xcor_data/analysis/0372I_0373I_0374I_0375I_0376I/0372I_0373I_0374I_0375I_0376I.fits"/>
+   <PARAM name="ImageOut_Name" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value="/Volumes/abraham/xcor_data/analysis/ATLAS_mwa57694/0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I/0298I_0302I_0306I_0318I_0322I_0326I_0338I_0342I_0346I.fits"/>
    <PARAM name="WeightOut_Name" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value="/dev/null"/>
    <PARAM name="Header_Only" datatype="boolean" ucd="meta.code;obs.param" value="F"/>
    <PARAM name="Header_Suffix" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value=".head"/>
@@ -140,7 +177,7 @@
    <PARAM name="Center" datatype="double" arraysize="2" ucd="pos;obs.param" value="              0             -27" unit="pix"/>
    <PARAM name="PixelScale_Type" datatype="char" arraysize="*" ucd="meta.code;pos;obs.param" value="MANUAL"/>
    <PARAM name="Pixel_Scale" datatype="float" arraysize="1" ucd="instr.scale;instr.pixel;obs.param" value="1.86"/>
-   <PARAM name="Image_Size" datatype="int" arraysize="1" ucd="instr.scale;instr.pixel;obs.param" value="29032"/>
+   <PARAM name="Image_Size" datatype="int" arraysize="1" ucd="instr.scale;instr.pixel;obs.param" value="23225"/>
    <PARAM name="Resample" datatype="boolean" ucd="meta.code" value="T"/>
    <PARAM name="Resample_Dir" datatype="char" arraysize="*" ucd="meta.dataset" value="."/>
    <PARAM name="Resample_Suffix" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value=".resamp.fits"/>

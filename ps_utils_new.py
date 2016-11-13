@@ -6,7 +6,7 @@ from astropy.io import fits
 import scipy.optimize
 
 class IRImage:
-    def __init__(self,fits_path,poly_order=4,run_poly_fit=False):
+    def __init__(self,fits_path,poly_order=4,run_poly_fit=False,fov_deg=5.):
         print('loading '+fits_path)
         
         hdulist = fits.open(fits_path)
@@ -22,7 +22,7 @@ class IRImage:
         self.dtheta_amin = 60.*self.dtheta_deg
         self.dtheta_rad = self.dtheta_deg*np.pi/180.
         self.domega_sr = self.dtheta_rad**2
-        self.fov_deg = 5.
+        self.fov_deg = fov_deg
         self.n = int(np.round(self.fov_deg/self.dtheta_deg))
         
         self.ADU_to_kjy_per_sr = 3.631*(10**(-self.MAGZPT/2.5))/self.exp_time_sec/self.domega_sr

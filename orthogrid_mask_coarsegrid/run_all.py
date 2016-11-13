@@ -2,8 +2,9 @@
 
 from subprocess import call
 
-labels = ['02a57639o0352I','02a57639o0356I','02a57639o0342I','02a57639o0346I']
+runs = ['ATLAS_mwa57694','ATLAS_mwa57694_rereduction']
+labels = ['02a57694o0313I','02a57694o0313I']
 
-for label in labels:
-	call(['./run.py',label])
+for i in range(len(labels)):
+	call(['./run.py',runs[i],labels[i]])
 

@@ -18,7 +18,7 @@ CENTER_TYPE			MANUAL
 #CENTER 				0, -27
 PIXELSCALE_TYPE 	MANUAL	
 #PIXEL_SCALE			1.86 # arcseconds
-#IMAGE_SIZE			18000,18000
+#IMAGE_SIZE			22000,22000
 
 #-------------------------------- Resampling ----------------------------------
 RESAMPLING_TYPE		BILINEAR
