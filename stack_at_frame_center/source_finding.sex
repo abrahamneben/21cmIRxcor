@@ -1,0 +1,14 @@
+PARAMETERS_NAME default.param
+FILTER_NAME /Users/abrahamn/.sextractor/default.conv
+STARNNW_NAME /Users/abrahamn/.sextractor/default.nnw
+
+
+PIXEL_SCALE		1.86 # asec
+#MAG_ZEROPOINT	20.56
+SATUR_LEVEL		20000
+
+BACKPHOTO_TYPE	LOCAL
+WEIGHT_TYPE		BACKGROUND
+
+THRESH_TYPE		RELATIVE
+DETECT_THRESH	2

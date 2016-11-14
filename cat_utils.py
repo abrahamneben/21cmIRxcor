@@ -32,19 +32,32 @@ class MWACatalog(Catalog):
         self.jy = np.array([f.i[0] for f in mwadat['catalog'].flux])
     
 class IRCatalog(Catalog):
-    def __init__(self,raw_frames_path,label,orthofitsimagepath):
-        print('loading '+label)
-        irdat = np.genfromtxt(raw_frames_path+label+'.dph',usecols=(0,1,2))
+    # note that the given fits image must be in ortho projection, ie, with swarp
+    def __init__(self,dph_path='',se_path='',fits_path=''):
+        assert dph_path != '' or se_path != ''
+        
+        if dph_path != '':
+            print('loading '+dph_path)
+            irdat = np.genfromtxt(dph_path,usecols=(0,1,2))
 
-        self.ra_all = irdat[:,0]
-        self.ra_all[self.ra_all>180] -= 360
-        self.dec_all = irdat[:,1]
+            self.ra_all = irdat[:,0]
+            self.ra_all[self.ra_all>180] -= 360
+            self.dec_all = irdat[:,1]
+
+            self.m_all = irdat[:,2]
+            self.jy_all = 3631.*10.**(-self.m_all/2.5)
+        elif se_path != '':
+            print('loading'+se_path)
+            se_dat = np.genfromtxt(se_path)
+            se_counts = se_dat[:,1]
+            self.ra_all = se_dat[:,3]
+            self.ra_all[self.ra_all>180] -= 360
+            self.dec_all = se_dat[:,4]
+            self.jy_all = 3631*10.**(-20.56/2.5)*se_counts/30
         
-        self.m_all = irdat[:,2]
-        self.jy_all = 3631.*10.**(-self.m_all/2.5)
-        
-        self.identify_catalog_artifacts(orthofitsimagepath)
-        self.calc_min_max_ra_dec()
+        if fits_path != '':
+            self.identify_catalog_artifacts(fits_path)
+            self.calc_min_max_ra_dec()
         
     def identify_catalog_artifacts(self,orthofitsimagepath):
         print('identifying and excluding artifacts (ie, saturated pixels)')
@@ -179,3 +192,16 @@ def plot_spectra(plt,lbins,pspec1,pspec2,xspec,bin_counts,ir_mwa_jymin_max):
     plt.title('cross correlation')
     
     plt.tight_layout()
+    
+def logloghist(plt,dat,bin_min,bin_max,num_bins,col):
+    counts,bins = np.histogram(dat, 10.**np.linspace(np.log10(bin_min),np.log10(bin_max),num_bins+1))
+    print(len(counts),len(bins))
+    
+    plt.loglog([bins[0],bins[0]],[.000001,counts[0]],col)
+    for i in range(num_bins-1):
+        plt.loglog([bins[i],bins[i+1],bins[i+1]],[counts[i],counts[i],counts[i+1]],col,lw=2)
+    plt.loglog([bins[num_bins-1],bins[num_bins],bins[num_bins]],[counts[num_bins-1],counts[num_bins-1],.01],col,lw=2)
+    
+        
+    plt.ylim([10,1.6*np.max(counts)])
+    
