@@ -2,6 +2,7 @@ import numpy as np
 from astropy.io import fits
 from astropy import wcs
 from scipy.io import readsav
+import scipy.signal
 
 class Catalog:
     def __init__(self,ra,dec,jy):
@@ -98,7 +99,7 @@ def plot_catalog_boundary(plt,cat,col):
     ra0,ra1,dec0,dec1 = cat.min_ra,cat.max_ra,cat.min_dec,cat.max_dec
     plt.plot([ra0,ra1,ra1,ra0,ra0],[dec0,dec0,dec1,dec1,dec0],col+'-')
     
-def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9):
+def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9,verbose=False):
     fluxcut = (cat.jy < jymax)&(cat.jy > jymin)
     thetax_fluxcut = np.cos(cat.mean_dec*np.pi/180.)*cat.ra[fluxcut]
     thetay_fluxcut = cat.dec[fluxcut]
@@ -112,6 +113,7 @@ def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9):
 
     img = np.zeros((n,n))
     for xi in range(n):
+        if verbose and xi % 5 == 0: print(1.*xi/n)
         for yi in range(n):
             inpixel = (thetax_fluxcut > thetax0+xi*dtheta)&(thetax_fluxcut < thetax0+(xi+1)*dtheta)&\
                       (thetay_fluxcut > thetay0+yi*dtheta)&(thetay_fluxcut < thetay0+(yi+1)*dtheta)
@@ -119,16 +121,26 @@ def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9):
     
     return img
 
-def calc_xspec(img1,img2,dtheta_deg,nbins,lmax):
+def make_hann(n):
+    w = scipy.signal.hann(n)
+    wx,wy = np.meshgrid(w,w)
+    w2 = wx*wy
+    return w2, np.sqrt(np.mean(w2**2))
+
+def calc_xspec(img1,img2,dtheta_deg,nbins,lmax,hann=True):
+    assert img1.shape == img2.shape
+    
     n,dang = img1.shape[0],dtheta_deg*np.pi/180.
     
-    #hann2D,hann2Drms = make_hann(n)
+    hann2D,hann2Drms = np.ones((n,n)),1
+    if hann:
+        hann2D,hann2Drms = make_hann(n)
     lvals = np.fft.fftfreq(n)*2*np.pi/dang
     lx,ly = np.meshgrid(lvals,lvals)
     lmag  = np.sqrt(lx**2+ly**2)
 
-    img1_ft = np.fft.fft2((img1-img1.mean()))
-    img2_ft = np.fft.fft2((img2-img2.mean()))
+    img1_ft = np.fft.fft2(hann2D*(img1-img1.mean()))/hann2Drms
+    img2_ft = np.fft.fft2(hann2D*(img2-img2.mean()))/hann2Drms
     
     lbinedges = np.linspace(0,lmax,nbins+1)
     lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
@@ -148,7 +160,7 @@ def calc_xspec(img1,img2,dtheta_deg,nbins,lmax):
     pspec_norm = (dang**2)/(n**2)
     return lbincenters,pspec1_binned*pspec_norm,pspec2_binned*pspec_norm,xspec_binned*pspec_norm,bin_counts
 
-def plot_spectra(plt,lbins,pspec1,pspec2,xspec,bin_counts,ir_mwa_jymin_max):
+def plot_spectra(plt,lbins,pspec1,pspec2,xspec,bin_counts,ir_mwa_jymin_max,irlim=[1.e-11,1.e-8],mwalim=[1.e-12,1.e-6]):
     ir_jymin,ir_jymax,mwa_jymin,mwa_jymax = ir_mwa_jymin_max
     
     plt.figure(figsize=(20,4))
@@ -156,18 +168,18 @@ def plot_spectra(plt,lbins,pspec1,pspec2,xspec,bin_counts,ir_mwa_jymin_max):
     plt.subplot(141)
     plt.loglog(lbins,pspec1)
     plt.xlim([np.min(lbins),np.max(lbins)])
-    plt.ylim([1.e-11,1.e-8])
+    plt.ylim(irlim)
     plt.xlabel('\ell')
     plt.ylabel('C_\ell')
-    plt.title("IR, (%1.4f < flux < %1.4f) jy"%(ir_jymin,ir_jymax))
+    plt.title("IR, (%1.0e < flux < %1.0e) jy"%(ir_jymin,ir_jymax))
     
     plt.subplot(142)
     plt.loglog(lbins,pspec2)
     plt.xlim([np.min(lbins),np.max(lbins)])
-    plt.ylim([1.e-12,1.e-6])
+    plt.ylim(mwalim)
     plt.xlabel('\ell')
     plt.ylabel('C_\ell')
-    plt.title("MWA, (%1.4f < flux < %1.4f) jy"%(mwa_jymin,mwa_jymax))
+    plt.title("MWA, (%1.0e < flux < %1.0e) jy"%(mwa_jymin,mwa_jymax))
     
     plt.subplot(143)
     ispos = xspec>0
