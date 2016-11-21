@@ -113,7 +113,7 @@ def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9,verbose=False):
 
     img = np.zeros((n,n))
     for xi in range(n):
-        if verbose and xi % 5 == 0: print(1.*xi/n)
+        if verbose and xi % 20 == 0: print(1.*xi/n)
         for yi in range(n):
             inpixel = (thetax_fluxcut > thetax0+xi*dtheta)&(thetax_fluxcut < thetax0+(xi+1)*dtheta)&\
                       (thetay_fluxcut > thetay0+yi*dtheta)&(thetay_fluxcut < thetay0+(yi+1)*dtheta)
@@ -195,15 +195,17 @@ def plot_spectra(plt,lbins,pspec1,pspec2,xspec,bin_counts,ir_mwa_jymin_max,irlim
     
     plt.subplot(144)
     xcor = xspec/np.sqrt(pspec1*pspec2)
-    plt.semilogx(lbins[ispos],xcor[ispos],'o')
-    plt.semilogx(lbins[isneg],-xcor[isneg],'v')
-    plt.ylim([0,1])
-    plt.xlim([np.min(lbins),np.max(lbins)])
+    plt.errorbar(lbins,xcor,np.sqrt(.5*(1+xcor)/bin_counts))
+    plt.ylim([-.1,.4])
+    plt.xlim([0,np.max(lbins)])
     plt.xlabel('\ell')
     plt.ylabel('c_\ell')
     plt.title('cross correlation')
+    plt.plot([0,5000],[0,0],'k-')
     
     plt.tight_layout()
+    
+ 
     
 def logloghist(plt,dat,bin_min,bin_max,num_bins,col):
     counts,bins = np.histogram(dat, 10.**np.linspace(np.log10(bin_min),np.log10(bin_max),num_bins+1))

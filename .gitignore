@@ -2,3 +2,5 @@
 .DS_Store
 model_cubes/.ipynb_checkpoints/
 .ipynb_checkpoints/
+*.png
+fg_xcor/*.png
