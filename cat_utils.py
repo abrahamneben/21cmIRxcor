@@ -20,6 +20,9 @@ class Catalog:
              (self.dec > cat.min_dec)&(self.dec < cat.max_dec)
         return Catalog(self.ra[g1],self.dec[g1],self.jy[g1])
     
+    def join_with_cat(self,cat):
+        return Catalog(np.append(self.ra,cat.ra), np.append(self.dec,cat.dec), np.append(self.jy,cat.jy))
+    
 
 class MWACatalog(Catalog):
     def __init__(self,fhdsavpath):
