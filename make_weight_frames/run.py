@@ -4,7 +4,7 @@ import commands
 from astropy.io import fits
 import numpy as np
 
-raw_frames_root = '/Volumes/abraham/xcor_data/ATLAS_mwa57694_rereduction/'
+raw_frames_root = '/Volumes/abraham/xcor_data/ATLAS_mwa57639/'
 labels = [l.split('/')[-1].split('.')[0] for l in commands.getoutput('ls '+raw_frames_root+'*.fits.fz').split()]
 
 for l in labels:

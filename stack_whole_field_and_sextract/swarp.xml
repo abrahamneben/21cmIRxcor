@@ -1,0 +1,1001 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///usr/local/share/swarp/swarp.xsl"?>
+<VOTABLE xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.1">
+<DESCRIPTION>produced by SWarp</DESCRIPTION>
+<!-- VOTable description at http://www.ivoa.net/Documents/latest/VOT.html -->
+<RESOURCE ID="SWarp" name="whole_field_bgsub.fits">
+ <DESCRIPTION>Data related to SWarp</DESCRIPTION>
+ <INFO name="QUERY_STATUS" value="OK" />
+ <COOSYS ID="J2000" equinox="J2000" epoch="J2000" system="ICRS"/>
+ <RESOURCE ID="MetaData" name="MetaData">
+  <DESCRIPTION>SWarp meta-data</DESCRIPTION>
+  <INFO name="QUERY_STATUS" value="OK" />
+  <PARAM name="Software" datatype="char" arraysize="*" ucd="meta.title;meta.software" value="SWarp"/>
+  <PARAM name="Version" datatype="char" arraysize="*" ucd="meta.version;meta.software" value="2.38.0"/>
+  <PARAM name="Soft_URL" datatype="char" arraysize="*" ucd="meta.ref.url;meta.software" value="http://astromatic.net/software/swarp/"/>
+  <PARAM name="Soft_Auth" datatype="char" arraysize="*" ucd="meta.bib.author;meta.software" value="Emmanuel Bertin"/>
+  <PARAM name="Soft_Ref" datatype="char" arraysize="*" ucd="meta.bib.bibcode;meta.software" value="2002ASPC..281..228B"/>
+  <PARAM name="NThreads" datatype="int" ucd="meta.number;meta.software" value="4"/>
+  <PARAM name="Date" datatype="char" arraysize="*" ucd="time.event.end;meta.software" value="2016-12-02"/>
+  <PARAM name="Time" datatype="char" arraysize="*" ucd="time.event.end;meta.software" value="03:21:08"/>
+  <PARAM name="Duration" datatype="float" ucd="time.event;meta.software" value="6920.78" unit="s"/>
+  <PARAM name="User" datatype="char" arraysize="*" ucd="meta.curation" value="abrahamn"/>
+  <PARAM name="Host" datatype="char" arraysize="*" ucd="meta.curation" value="(null)"/>
+  <PARAM name="Path" datatype="char" arraysize="*" ucd="meta.dataset" value="/Users/abrahamn/21cmIR/21cmIRxcor/stack_whole_field_and_sextract"/>
+  <PARAM name="Image_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits" value="/volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field_bgsub.fits"/>
+  <PARAM name="Weight_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits" value="/volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field_bgsub_weight.fits"/>
+  <PARAM name="NOverlap_Max" datatype="int" ucd="meta.number;stat.max;obs.image" value="29"/>
+  <PARAM name="ExpTime_Max" datatype="float" ucd="time.expo;stat.max;obs.image" value="870" unit="s"/>
+  <PARAM name="Gain_Max" datatype="float" ucd="instr.calib;stat.max;obs.image" value="59.45" unit="photon/ADU"/>
+  <TABLE ID="Input_Image_Data" name="Input_Image_Data">
+   <DESCRIPTION>Data gathered by SWarp for every FITS input image</DESCRIPTION>
+   <!-- NFrames may be 0 if an error occurred early in the processing -->
+   <PARAM name="NFrames" datatype="int" ucd="meta.number;meta.dataset" value="97"/>
+   <!-- CurrFrame may differ from NFrames if an error occurred -->
+   <PARAM name="CurrFrame" datatype="int" ucd="meta.number;meta.dataset" value="97"/>
+   <FIELD name="Frame_Index" datatype="int" ucd="meta.record"/>
+   <FIELD name="Image_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits"/>
+   <FIELD name="Weight_Name" datatype="char" arraysize="*" ucd="obs.image;meta.fits"/>
+   <FIELD name="External_Header" datatype="boolean" ucd="meta.code;obs.param"/>
+   <FIELD name="Image_Ident" datatype="char" arraysize="*" ucd="meta.id;obs"/>
+   <FIELD name="Extension" datatype="int" ucd="meta.record"/>
+   <FIELD name="Date" datatype="char" arraysize="*" ucd="meta.record;time.event.end"/>
+   <FIELD name="Time" datatype="char" arraysize="*" ucd="meta.record;time.event.end"/>
+   <FIELD name="Duration" datatype="float" ucd="meta.record;time.event.end" unit="s"/>
+   <FIELD name="Background_Mean" datatype="float" ucd="instr.skyLevel;obs.image;stat.median" unit="adu"/>
+   <FIELD name="Background_StDev" datatype="float" ucd="stat.stdev;obs.image;stat.median" unit="adu"/>
+   <FIELD name="Subtract_Back" datatype="boolean" ucd="meta.code;obs.param"/>
+   <FIELD name="Back_Type" datatype="char" arraysize="*" ucd="meta.code;obs.param"/>
+   <FIELD name="Back_Size" datatype="int" ucd="obs.param" unit="pix"/>
+   <FIELD name="Back_FilterSize" datatype="int" ucd="obs.param" unit="pix"/>
+   <FIELD name="Back_Default" datatype="float" ucd="obs.param" unit="adu"/>
+   <FIELD name="Weight_Type" datatype="boolean" arraysize="*" ucd="stat.weight;meta.code"/>
+   <FIELD name="Rescale_Weights" datatype="char" arraysize="*" ucd="stat.weight;meta.code"/>
+   <FIELD name="Weight_Thresh" datatype="float" ucd="instr.sensitivity;obs.param" unit="adu"/>
+   <FIELD name="Weight_Scaling" datatype="float" ucd="arith.factor;obs.image;stat.median"/>
+   <FIELD name="Interpolate" datatype="boolean" ucd="meta.code;obs.param"/>
+   <FIELD name="Gain" datatype="float" ucd="instr.calib;obs.image" unit="photon/adu"/>
+   <FIELD name="Saturation" datatype="float" ucd="instr.calib;obs.image" unit="adu"/>
+   <FIELD name="ExpTime" datatype="float" ucd="time.expo;obs.image" unit="s"/>
+   <FIELD name="Photometric_Flux_Scaling" datatype="float" ucd="phot.calib;obs.image"/>
+   <FIELD name="Astrometric_Flux_Scaling" datatype="float" ucd="phot.calib;obs.image"/>
+   <FIELD name="Field_Coordinates" datatype="double" arraysize="2" ucd="pos.eq;obs.image" unit="pix"/>
+   <FIELD name="Pixel_Scale" datatype="float" ucd="instr.pixel;obs.image;stat.mean" unit="arcsec"/>
+   <FIELD name="ObsDate" datatype="double" ucd="time.start;obs" unit="yr"/>
+   <FIELD name="Equinox" datatype="double" ucd="time.equinox;obs" unit="yr"/>
+   <FIELD name="Epoch" datatype="double" ucd="time.epoch;obs" unit="yr"/>
+   <FIELD name="COOSYS" datatype="char" arraysize="*" ucd="meta.code;pos"/>
+   <DATA><TABLEDATA>
+    <TR>
+     <TD>1</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0174I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0174I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:26:20</TD><TD>28.00</TD>
+     <TD>362.798</TD><TD>15.1061</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1061</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01301</TD><TD>352.5744541 -22.49874873</TD><TD>1.87436</TD><TD>2016.686746</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>2</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0175I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0175I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:26:45</TD><TD>25.00</TD>
+     <TD>361.073</TD><TD>15.0906</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0906</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01312</TD><TD>352.5642938 -22.48847888</TD><TD>1.87441</TD><TD>2016.686747</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>3</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0176I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0176I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:27:12</TD><TD>26.00</TD>
+     <TD>361.392</TD><TD>15.0961</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0961</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01294</TD><TD>352.5953106 -22.50940016</TD><TD>1.87431</TD><TD>2016.686748</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>4</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0177I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0177I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:27:37</TD><TD>25.00</TD>
+     <TD>360.931</TD><TD>15.0834</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0834</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01301</TD><TD>352.6039893 -22.48434542</TD><TD>1.87435</TD><TD>2016.68675</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>5</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0178I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0178I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:28:03</TD><TD>25.00</TD>
+     <TD>361.547</TD><TD>15.0956</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0956</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01304</TD><TD>352.5845718 -22.49413883</TD><TD>1.87436</TD><TD>2016.686751</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>6</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0179I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0179I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:28:30</TD><TD>26.00</TD>
+     <TD>360.007</TD><TD>15.0573</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0573</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01303</TD><TD>352.5750022 -22.49904277</TD><TD>1.87436</TD><TD>2016.686752</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>7</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0180I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0180I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:28:56</TD><TD>26.00</TD>
+     <TD>357.229</TD><TD>15.0268</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0268</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01394</TD><TD>352.0862256 -22.55969392</TD><TD>1.8751</TD><TD>2016.686754</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>8</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0181I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0181I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:29:22</TD><TD>26.00</TD>
+     <TD>355.791</TD><TD>15.0077</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0077</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01394</TD><TD>352.0862256 -22.55969392</TD><TD>1.8751</TD><TD>2016.686755</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>9</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0182I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0182I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:29:49</TD><TD>26.00</TD>
+     <TD>355.351</TD><TD>14.9743</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.9743</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01393</TD><TD>352.0862256 -22.55969392</TD><TD>1.8751</TD><TD>2016.686756</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>10</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0183I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0183I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:30:15</TD><TD>26.00</TD>
+     <TD>354.451</TD><TD>14.9373</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.9373</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01396</TD><TD>352.0862256 -22.55969392</TD><TD>1.8751</TD><TD>2016.686758</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>11</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0184I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0184I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:30:42</TD><TD>26.00</TD>
+     <TD>381.82</TD><TD>15.4281</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.4281</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.0065</TD><TD>351.7506236 -27.5320263</TD><TD>1.86831</TD><TD>2016.686768</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>12</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0185I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0185I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:31:08</TD><TD>26.00</TD>
+     <TD>381.338</TD><TD>15.4147</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.4147</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.0065</TD><TD>351.7506236 -27.5320263</TD><TD>1.86831</TD><TD>2016.686769</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>13</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0186I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0186I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:31:34</TD><TD>26.00</TD>
+     <TD>379.782</TD><TD>15.4228</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.4228</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00653</TD><TD>351.7506236 -27.5320263</TD><TD>1.86831</TD><TD>2016.68677</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>14</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0187I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0187I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:32:01</TD><TD>26.00</TD>
+     <TD>380.594</TD><TD>15.4215</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.4215</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.0065</TD><TD>351.7506236 -27.5320263</TD><TD>1.86831</TD><TD>2016.686772</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>15</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0188I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0188I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:32:26</TD><TD>25.00</TD>
+     <TD>377.858</TD><TD>15.3588</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3588</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00665</TD><TD>357.9385098 -22.53625007</TD><TD>1.86842</TD><TD>2016.686773</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>16</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0189I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0189I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:32:51</TD><TD>25.00</TD>
+     <TD>377.434</TD><TD>15.3425</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3425</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00667</TD><TD>357.9287909 -22.5311359</TD><TD>1.86843</TD><TD>2016.686775</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>17</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0190I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0190I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:33:17</TD><TD>25.00</TD>
+     <TD>377.254</TD><TD>15.3477</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3477</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00657</TD><TD>357.9587927 -22.54622935</TD><TD>1.86839</TD><TD>2016.686776</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>18</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0191I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0191I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:33:43</TD><TD>25.00</TD>
+     <TD>377.545</TD><TD>15.3611</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3611</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00671</TD><TD>357.9683987 -22.52111267</TD><TD>1.86844</TD><TD>2016.686777</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>19</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0192I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0192I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:34:08</TD><TD>25.00</TD>
+     <TD>376.891</TD><TD>15.3356</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3356</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00671</TD><TD>357.9488663 -22.5361626</TD><TD>1.86841</TD><TD>2016.686779</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>20</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0193I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0193I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:34:33</TD><TD>25.00</TD>
+     <TD>377.12</TD><TD>15.3326</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3326</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00667</TD><TD>357.9488663 -22.5361626</TD><TD>1.86841</TD><TD>2016.68678</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>21</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0194I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0194I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:34:59</TD><TD>25.00</TD>
+     <TD>372.125</TD><TD>15.2084</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.2084</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00673</TD><TD>357.3308912 -22.60274143</TD><TD>1.86861</TD><TD>2016.686781</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>22</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0195I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0195I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:35:25</TD><TD>26.00</TD>
+     <TD>370.842</TD><TD>15.1969</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1969</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00673</TD><TD>357.3308912 -22.60274143</TD><TD>1.86861</TD><TD>2016.686783</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>23</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0196I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0196I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:35:51</TD><TD>25.00</TD>
+     <TD>371.607</TD><TD>15.1961</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1961</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00675</TD><TD>357.3308912 -22.60274143</TD><TD>1.86861</TD><TD>2016.686784</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>24</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0197I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0197I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:36:18</TD><TD>26.00</TD>
+     <TD>371.473</TD><TD>15.1812</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1812</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00674</TD><TD>357.3308962 -22.60248098</TD><TD>1.86861</TD><TD>2016.686785</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>25</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0309I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0309I_weight.fits</TD><TD>F</TD><TD>TA350S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:36:40</TD><TD>22.00</TD>
+     <TD>400.016</TD><TD>15.7498</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.7498</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01861</TD><TD>350.519343 -37.52535549</TD><TD>1.87696</TD><TD>2016.68697</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>26</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0310I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0310I_weight.fits</TD><TD>F</TD><TD>TA350S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:37:03</TD><TD>22.00</TD>
+     <TD>400.315</TD><TD>15.74</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.74</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01836</TD><TD>350.5284709 -37.49534439</TD><TD>1.87688</TD><TD>2016.686971</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>27</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0311I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0311I_weight.fits</TD><TD>F</TD><TD>TA350S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:37:26</TD><TD>22.00</TD>
+     <TD>400.077</TD><TD>15.762</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.762</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01855</TD><TD>350.5143305 -37.51037014</TD><TD>1.87694</TD><TD>2016.686973</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>28</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0312I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0312I_weight.fits</TD><TD>F</TD><TD>TA351S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:37:52</TD><TD>26.00</TD>
+     <TD>363.983</TD><TD>15.1101</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1101</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00906</TD><TD>351.0002414 -33.2189434</TD><TD>1.86984</TD><TD>2016.686974</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>29</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0313I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0313I_weight.fits</TD><TD>F</TD><TD>TA351S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:38:18</TD><TD>26.00</TD>
+     <TD>361.869</TD><TD>15.0733</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0733</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00902</TD><TD>350.9960103 -33.19945348</TD><TD>1.86983</TD><TD>2016.686975</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>30</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0314I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0314I_weight.fits</TD><TD>F</TD><TD>TA351S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:38:45</TD><TD>26.00</TD>
+     <TD>360.21</TD><TD>15.0386</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0386</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00897</TD><TD>351.0091856 -33.23822387</TD><TD>1.86984</TD><TD>2016.686977</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>31</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0315I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0315I_weight.fits</TD><TD>F</TD><TD>TA351S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:39:11</TD><TD>26.00</TD>
+     <TD>358.2</TD><TD>15.0457</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0457</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00892</TD><TD>351.0169845 -33.17798662</TD><TD>1.86977</TD><TD>2016.686978</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>32</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0316I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0316I_weight.fits</TD><TD>F</TD><TD>TA351S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:39:38</TD><TD>26.00</TD>
+     <TD>358.571</TD><TD>15.0568</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.0568</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00896</TD><TD>351.0056844 -33.20865696</TD><TD>1.86982</TD><TD>2016.68698</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>33</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0317I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0317I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:40:05</TD><TD>26.00</TD>
+     <TD>328.012</TD><TD>14.5094</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.5094</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00761</TD><TD>351.4085206 -28.21863386</TD><TD>1.86847</TD><TD>2016.686981</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>34</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0318I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0318I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:40:31</TD><TD>26.00</TD>
+     <TD>324.622</TD><TD>14.4386</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4386</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00769</TD><TD>351.4044637 -28.199189</TD><TD>1.86849</TD><TD>2016.686982</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>35</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0319I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0319I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:40:57</TD><TD>26.00</TD>
+     <TD>320.421</TD><TD>14.3739</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.3739</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00758</TD><TD>351.4179294 -28.23791305</TD><TD>1.86844</TD><TD>2016.686984</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>36</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0320I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0320I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:41:24</TD><TD>26.00</TD>
+     <TD>314.225</TD><TD>14.2604</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.2604</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00763</TD><TD>351.4248534 -28.1779887</TD><TD>1.86846</TD><TD>2016.686985</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>37</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0321I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0321I_weight.fits</TD><TD>F</TD><TD>TA351S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:41:50</TD><TD>26.00</TD>
+     <TD>310.709</TD><TD>14.2471</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.2471</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00767</TD><TD>351.4140956 -28.20837685</TD><TD>1.86847</TD><TD>2016.686986</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>38</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0322I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0322I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:42:18</TD><TD>27.00</TD>
+     <TD>292.349</TD><TD>13.9144</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.9144</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.014</TD><TD>351.7656856 -23.21590771</TD><TD>1.87431</TD><TD>2016.686988</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>39</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0323I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0323I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:42:45</TD><TD>27.00</TD>
+     <TD>294.341</TD><TD>13.9305</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.9305</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01405</TD><TD>351.7612211 -23.19631977</TD><TD>1.87435</TD><TD>2016.686989</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>40</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0324I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0324I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:43:12</TD><TD>27.00</TD>
+     <TD>295.162</TD><TD>13.9463</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.9463</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01391</TD><TD>351.7750079 -23.23503489</TD><TD>1.87425</TD><TD>2016.686991</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>41</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0325I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0325I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:43:38</TD><TD>26.00</TD>
+     <TD>297.269</TD><TD>14.0429</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0429</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01403</TD><TD>351.7815672 -23.17498926</TD><TD>1.87436</TD><TD>2016.686992</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>42</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0326I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0326I_weight.fits</TD><TD>F</TD><TD>TA351S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:44:04</TD><TD>26.00</TD>
+     <TD>301.585</TD><TD>14.1052</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.1052</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.014</TD><TD>351.7708714 -23.2055637</TD><TD>1.87432</TD><TD>2016.686993</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>43</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0327I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0327I_weight.fits</TD><TD>F</TD><TD>TA356S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:44:29</TD><TD>25.00</TD>
+     <TD>388.538</TD><TD>15.512</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.512</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00902</TD><TD>356.1629939 -37.68865497</TD><TD>1.86987</TD><TD>2016.686995</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>44</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0328I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0328I_weight.fits</TD><TD>F</TD><TD>TA356S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:44:54</TD><TD>24.00</TD>
+     <TD>385.34</TD><TD>15.4473</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.4473</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00901</TD><TD>356.1527396 -37.6782071</TD><TD>1.86985</TD><TD>2016.686996</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>45</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0329I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0329I_weight.fits</TD><TD>F</TD><TD>TA356S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:45:19</TD><TD>25.00</TD>
+     <TD>380.64</TD><TD>15.3759</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3759</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00909</TD><TD>356.1833943 -37.69911159</TD><TD>1.86987</TD><TD>2016.686997</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>46</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0330I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0330I_weight.fits</TD><TD>F</TD><TD>TA356S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:45:45</TD><TD>25.00</TD>
+     <TD>373.284</TD><TD>15.331</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.331</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00889</TD><TD>356.2015963 -37.66959657</TD><TD>1.8698</TD><TD>2016.686999</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>47</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0331I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0331I_weight.fits</TD><TD>F</TD><TD>TA356S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:46:09</TD><TD>24.00</TD>
+     <TD>368.117</TD><TD>15.2195</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.2195</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00898</TD><TD>356.1727248 -37.68395857</TD><TD>1.86985</TD><TD>2016.687</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>48</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0332I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0332I_weight.fits</TD><TD>F</TD><TD>TA357S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:46:37</TD><TD>28.00</TD>
+     <TD>342.596</TD><TD>14.7597</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.7597</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00035</TD><TD>356.386162 -33.17587967</TD><TD>1.86277</TD><TD>2016.687001</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>49</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0333I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0333I_weight.fits</TD><TD>F</TD><TD>TA357S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:46:57</TD><TD>19.00</TD>
+     <TD>344.506</TD><TD>14.7956</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.7956</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00036</TD><TD>356.376472 -33.15594907</TD><TD>1.86276</TD><TD>2016.687003</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>50</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0334I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0334I_weight.fits</TD><TD>F</TD><TD>TA357S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:47:17</TD><TD>20.00</TD>
+     <TD>347.882</TD><TD>14.8338</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8338</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00036</TD><TD>356.4162597 -33.19608735</TD><TD>1.86277</TD><TD>2016.687004</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>51</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0335I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0335I_weight.fits</TD><TD>F</TD><TD>TA357S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:47:37</TD><TD>19.00</TD>
+     <TD>350.595</TD><TD>14.8535</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8535</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00029</TD><TD>356.4261356 -33.13602999</TD><TD>1.86271</TD><TD>2016.687006</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>52</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0336I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0336I_weight.fits</TD><TD>F</TD><TD>TA357S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:47:57</TD><TD>19.00</TD>
+     <TD>352.427</TD><TD>14.8786</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8786</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00032</TD><TD>356.3964626 -33.16605564</TD><TD>1.86276</TD><TD>2016.687007</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>53</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0337I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0337I_weight.fits</TD><TD>F</TD><TD>TA357S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:48:17</TD><TD>20.00</TD>
+     <TD>324.32</TD><TD>14.4414</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4414</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999322</TD><TD>356.5555718 -28.18708344</TD><TD>1.86175</TD><TD>2016.687008</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>54</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0338I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0338I_weight.fits</TD><TD>F</TD><TD>TA357S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:48:37</TD><TD>19.00</TD>
+     <TD>322.719</TD><TD>14.406</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.406</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999331</TD><TD>356.5456537 -28.16690992</TD><TD>1.86177</TD><TD>2016.68701</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>55</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0339I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0339I_weight.fits</TD><TD>F</TD><TD>TA357S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:48:57</TD><TD>19.00</TD>
+     <TD>322.021</TD><TD>14.3938</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.3938</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999327</TD><TD>356.5757878 -28.20675185</TD><TD>1.86173</TD><TD>2016.687011</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>56</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0340I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0340I_weight.fits</TD><TD>F</TD><TD>TA357S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:49:17</TD><TD>20.00</TD>
+     <TD>320.61</TD><TD>14.4169</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4169</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999317</TD><TD>356.5859278 -28.14677114</TD><TD>1.86175</TD><TD>2016.687012</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>57</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0341I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0341I_weight.fits</TD><TD>F</TD><TD>TA357S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:49:37</TD><TD>19.00</TD>
+     <TD>323.494</TD><TD>14.4694</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4694</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999351</TD><TD>356.565887 -28.17675491</TD><TD>1.86175</TD><TD>2016.687014</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>58</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0342I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0342I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:49:56</TD><TD>19.00</TD>
+     <TD>302.711</TD><TD>14.0935</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0935</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00604</TD><TD>356.7153777 -23.17823915</TD><TD>1.86785</TD><TD>2016.687015</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>59</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0343I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0343I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:50:16</TD><TD>19.00</TD>
+     <TD>302.347</TD><TD>14.0825</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0825</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00606</TD><TD>356.6953252 -23.15818549</TD><TD>1.8679</TD><TD>2016.687017</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>60</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0344I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0344I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:50:36</TD><TD>19.00</TD>
+     <TD>303.627</TD><TD>14.1019</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.1019</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00596</TD><TD>356.7351606 -23.19802121</TD><TD>1.8678</TD><TD>2016.687018</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>61</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0345I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0345I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:50:56</TD><TD>19.00</TD>
+     <TD>302.488</TD><TD>14.0749</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0749</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00607</TD><TD>356.7453443 -23.13816835</TD><TD>1.86791</TD><TD>2016.687019</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>62</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0346I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0346I_weight.fits</TD><TD>F</TD><TD>TA357S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:51:15</TD><TD>19.00</TD>
+     <TD>301.711</TD><TD>14.0854</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0854</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00601</TD><TD>356.7254778 -23.16809623</TD><TD>1.86786</TD><TD>2016.687021</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>63</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0347I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0347I_weight.fits</TD><TD>F</TD><TD>TA002S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:51:35</TD><TD>19.00</TD>
+     <TD>304.275</TD><TD>14.0812</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0812</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00517</TD><TD>2.065342339 -23.17778259</TD><TD>1.86711</TD><TD>2016.687022</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>64</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0348I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0348I_weight.fits</TD><TD>F</TD><TD>TA002S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:51:54</TD><TD>19.00</TD>
+     <TD>304.173</TD><TD>14.0793</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0793</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00519</TD><TD>2.055476426 -23.15791034</TD><TD>1.86714</TD><TD>2016.687023</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>65</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0349I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0349I_weight.fits</TD><TD>F</TD><TD>TA002S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:52:14</TD><TD>19.00</TD>
+     <TD>303.918</TD><TD>14.0769</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0769</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00519</TD><TD>2.085337573 -23.19774329</TD><TD>1.86708</TD><TD>2016.687025</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>66</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0350I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0350I_weight.fits</TD><TD>F</TD><TD>TA002S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:52:33</TD><TD>19.00</TD>
+     <TD>302.736</TD><TD>14.0676</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0676</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00529</TD><TD>2.095370222 -23.13798456</TD><TD>1.8672</TD><TD>2016.687026</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>67</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0351I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0351I_weight.fits</TD><TD>F</TD><TD>TA002S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:52:52</TD><TD>19.00</TD>
+     <TD>303.47</TD><TD>14.0515</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.0515</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00519</TD><TD>2.075594649 -23.16798326</TD><TD>1.86713</TD><TD>2016.687027</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>68</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0352I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0352I_weight.fits</TD><TD>F</TD><TD>TA002S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:53:12</TD><TD>19.00</TD>
+     <TD>320.471</TD><TD>14.3939</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.3939</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.998484</TD><TD>2.174672111 -28.18712847</TD><TD>1.86098</TD><TD>2016.687029</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>69</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0353I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0353I_weight.fits</TD><TD>F</TD><TD>TA002S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:53:31</TD><TD>19.00</TD>
+     <TD>319.705</TD><TD>14.4089</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4089</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.998545</TD><TD>2.154610885 -28.16678205</TD><TD>1.86098</TD><TD>2016.68703</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>70</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0354I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0354I_weight.fits</TD><TD>F</TD><TD>TA002S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:53:51</TD><TD>19.00</TD>
+     <TD>321.043</TD><TD>14.4232</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4232</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.998432</TD><TD>2.194730823 -28.20695474</TD><TD>1.86098</TD><TD>2016.687032</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>71</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0355I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0355I_weight.fits</TD><TD>F</TD><TD>TA002S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:54:10</TD><TD>19.00</TD>
+     <TD>321.145</TD><TD>14.427</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.427</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.998509</TD><TD>2.204643298 -28.14707132</TD><TD>1.86101</TD><TD>2016.687033</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>72</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0356I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0356I_weight.fits</TD><TD>F</TD><TD>TA002S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:54:29</TD><TD>19.00</TD>
+     <TD>321.959</TD><TD>14.4195</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.4195</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.998512</TD><TD>2.184728199 -28.176878</TD><TD>1.86099</TD><TD>2016.687034</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>73</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0357I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0357I_weight.fits</TD><TD>F</TD><TD>TA002S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:54:48</TD><TD>19.00</TD>
+     <TD>348.355</TD><TD>14.8404</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8404</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999494</TD><TD>2.264177691 -33.17564734</TD><TD>1.86196</TD><TD>2016.687036</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>74</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0358I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0358I_weight.fits</TD><TD>F</TD><TD>TA002S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:55:07</TD><TD>19.00</TD>
+     <TD>343.995</TD><TD>14.8115</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8115</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999444</TD><TD>2.254395986 -33.15562393</TD><TD>1.86193</TD><TD>2016.687037</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>75</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0359I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0359I_weight.fits</TD><TD>F</TD><TD>TA002S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:55:27</TD><TD>20.00</TD>
+     <TD>342.648</TD><TD>14.7796</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.7796</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999626</TD><TD>2.294353359 -33.19558863</TD><TD>1.86199</TD><TD>2016.687038</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>76</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0360I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0360I_weight.fits</TD><TD>F</TD><TD>TA002S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:55:47</TD><TD>19.00</TD>
+     <TD>340.774</TD><TD>14.7344</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.7344</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.999469</TD><TD>2.304214879 -33.13590214</TD><TD>1.86194</TD><TD>2016.68704</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>77</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0361I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0361I_weight.fits</TD><TD>F</TD><TD>TA002S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:56:06</TD><TD>19.00</TD>
+     <TD>339.703</TD><TD>14.7049</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.7049</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>0.99948</TD><TD>2.274728786 -33.16563834</TD><TD>1.86195</TD><TD>2016.687041</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>78</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0362I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0362I_weight.fits</TD><TD>F</TD><TD>TA003S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:56:24</TD><TD>17.00</TD>
+     <TD>375.484</TD><TD>15.3375</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.3375</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00803</TD><TD>2.419791499 -37.72136917</TD><TD>1.86907</TD><TD>2016.687042</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>79</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0363I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0363I_weight.fits</TD><TD>F</TD><TD>TA003S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:56:42</TD><TD>18.00</TD>
+     <TD>373.345</TD><TD>15.247</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.247</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00799</TD><TD>2.400521564 -37.71178362</TD><TD>1.86904</TD><TD>2016.687044</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>80</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0364I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0364I_weight.fits</TD><TD>F</TD><TD>TA003S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:57:00</TD><TD>17.00</TD>
+     <TD>370.891</TD><TD>15.2076</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.2076</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.0081</TD><TD>2.439229915 -37.73590435</TD><TD>1.86911</TD><TD>2016.687045</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>81</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0365I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0365I_weight.fits</TD><TD>F</TD><TD>TA003S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:57:18</TD><TD>17.00</TD>
+     <TD>368.161</TD><TD>15.1725</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1725</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00797</TD><TD>2.460453981 -37.70555358</TD><TD>1.86905</TD><TD>2016.687047</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>82</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0366I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0366I_weight.fits</TD><TD>F</TD><TD>TA003S37</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:57:36</TD><TD>17.00</TD>
+     <TD>366.392</TD><TD>15.1521</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>15.1521</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00808</TD><TD>2.429919332 -37.7211981</TD><TD>1.86907</TD><TD>2016.687048</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>83</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0367I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0367I_weight.fits</TD><TD>F</TD><TD>TA008S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:58:02</TD><TD>25.00</TD>
+     <TD>293.644</TD><TD>13.8904</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.8904</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01145</TD><TD>7.42440688 -23.18860922</TD><TD>1.8729</TD><TD>2016.687049</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>84</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0368I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0368I_weight.fits</TD><TD>F</TD><TD>TA008S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:58:30</TD><TD>27.00</TD>
+     <TD>292.358</TD><TD>13.8806</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.8806</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01147</TD><TD>7.414506967 -23.168614</TD><TD>1.87293</TD><TD>2016.687051</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>85</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0369I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0369I_weight.fits</TD><TD>F</TD><TD>TA008S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:58:58</TD><TD>28.00</TD>
+     <TD>291.303</TD><TD>13.8852</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.8852</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01144</TD><TD>7.444227933 -23.20852875</TD><TD>1.8729</TD><TD>2016.687052</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>86</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0370I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0370I_weight.fits</TD><TD>F</TD><TD>TA008S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:59:26</TD><TD>27.00</TD>
+     <TD>292.064</TD><TD>13.8897</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.8897</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.0116</TD><TD>7.454485118 -23.14875341</TD><TD>1.87304</TD><TD>2016.687053</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>87</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0371I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0371I_weight.fits</TD><TD>F</TD><TD>TA008S22</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>01:59:54</TD><TD>28.00</TD>
+     <TD>291.932</TD><TD>13.8977</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>13.8977</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.01147</TD><TD>7.434618186 -23.17861518</TD><TD>1.87294</TD><TD>2016.687055</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>88</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0372I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0372I_weight.fits</TD><TD>F</TD><TD>TA008S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:00:23</TD><TD>28.00</TD>
+     <TD>308.074</TD><TD>14.1244</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.1244</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00501</TD><TD>7.783246668 -28.18762794</TD><TD>1.86704</TD><TD>2016.687056</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>89</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0373I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0373I_weight.fits</TD><TD>F</TD><TD>TA008S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:00:52</TD><TD>29.00</TD>
+     <TD>308.781</TD><TD>14.1633</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.1633</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00498</TD><TD>7.773509863 -28.16774717</TD><TD>1.86704</TD><TD>2016.687058</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>90</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0374I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0374I_weight.fits</TD><TD>F</TD><TD>TA008S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:01:21</TD><TD>28.00</TD>
+     <TD>310.031</TD><TD>14.1597</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.1597</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00506</TD><TD>7.813409552 -28.2075779</TD><TD>1.86708</TD><TD>2016.687059</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>91</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0375I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0375I_weight.fits</TD><TD>F</TD><TD>TA008S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:01:49</TD><TD>28.00</TD>
+     <TD>311.476</TD><TD>14.1839</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.1839</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00513</TD><TD>7.82322114 -28.14792856</TD><TD>1.86714</TD><TD>2016.68706</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>92</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0376I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0376I_weight.fits</TD><TD>F</TD><TD>TA008S27</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:02:18</TD><TD>28.00</TD>
+     <TD>312.704</TD><TD>14.2144</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.2144</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00503</TD><TD>7.793463326 -28.17769111</TD><TD>1.86707</TD><TD>2016.687062</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>93</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0377I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0377I_weight.fits</TD><TD>F</TD><TD>TA008S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:02:47</TD><TD>29.00</TD>
+     <TD>336.617</TD><TD>14.5899</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.5899</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00631</TD><TD>8.151317698 -33.18621256</TD><TD>1.8683</TD><TD>2016.687063</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>94</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0378I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0378I_weight.fits</TD><TD>F</TD><TD>TA008S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:03:16</TD><TD>29.00</TD>
+     <TD>335.893</TD><TD>14.5852</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.5852</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00625</TD><TD>8.131713578 -33.16662365</TD><TD>1.86825</TD><TD>2016.687064</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>95</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0379I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0379I_weight.fits</TD><TD>F</TD><TD>TA008S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:03:45</TD><TD>29.00</TD>
+     <TD>335.677</TD><TD>14.7881</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.7881</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00636</TD><TD>8.171625375 -33.20653597</TD><TD>1.86835</TD><TD>2016.687066</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>96</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0380I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0380I_weight.fits</TD><TD>F</TD><TD>TA008S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:04:14</TD><TD>28.00</TD>
+     <TD>334.944</TD><TD>14.8057</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8057</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00629</TD><TD>8.181268815 -33.14654463</TD><TD>1.86832</TD><TD>2016.687067</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+    <TR>
+     <TD>97</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0381I.fits</TD><TD>/volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0381I_weight.fits</TD><TD>F</TD><TD>TA008S32</TD>
+     <TD>0</TD><TD>2016-12-02</TD><TD>02:04:43</TD><TD>28.00</TD>
+     <TD>336.737</TD><TD>14.8382</TD><TD>T</TD><TD>AUTO</TD><TD>256</TD><TD>3</TD><TD>0</TD>
+     <TD>MAP_WEIGHT</TD><TD>T</TD><TD>0</TD><TD>14.8382</TD><TD>F</TD>
+     <TD>2.05</TD><TD>39024</TD><TD>30</TD><TD>1</TD>
+     <TD>1.00629</TD><TD>8.161300123 -33.17627709</TD><TD>1.86831</TD><TD>2016.687068</TD><TD>2000</TD><TD>2000</TD>
+     <TD>ICRS</TD>
+    </TR>
+   </TABLEDATA></DATA>
+  </TABLE>
+  <TABLE ID="Warnings" name="Warnings">
+   <DESCRIPTION>SWarp warnings (limited to the last 1000)</DESCRIPTION>
+   <FIELD name="Date" datatype="char" arraysize="*" ucd="meta;time.event.end"/>
+   <FIELD name="Time" datatype="char" arraysize="*" ucd="meta;time.event.end"/>
+   <FIELD name="Msg" datatype="char" arraysize="*" ucd="meta"/>
+   <DATA><TABLEDATA>
+   </TABLEDATA></DATA>
+  </TABLE>
+  <RESOURCE ID="Config" name="Config">
+   <DESCRIPTION>SWarp configuration</DESCRIPTION>
+   <PARAM name="Command_Line" datatype="char" arraysize="*" ucd="obs.param" value="swarp /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0174I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0175I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0176I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0177I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0178I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0179I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0180I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0181I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0182I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0183I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0184I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0185I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0186I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0187I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0188I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0189I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0190I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0191I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0192I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0193I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0194I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0195I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0196I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0197I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0309I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0310I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0311I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0312I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0313I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0314I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0315I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0316I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0317I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0318I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0319I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0320I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0321I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0322I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0323I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0324I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0325I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0326I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0327I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0328I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0329I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0330I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0331I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0332I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0333I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0334I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0335I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0336I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0337I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0338I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0339I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0340I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0341I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0342I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0343I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0344I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0345I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0346I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0347I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0348I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0349I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0350I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0351I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0352I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0353I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0354I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0355I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0356I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0357I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0358I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0359I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0360I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0361I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0362I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0363I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0364I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0365I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0366I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0367I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0368I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0369I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0370I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0371I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0372I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0373I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0374I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0375I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0376I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0377I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0378I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0379I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0380I.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0381I.fits -WEIGHT_TYPE MAP_WEIGHT -WEIGHT_IMAGE /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0174I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0175I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0176I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0177I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0178I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0179I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0180I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0181I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0182I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0183I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0184I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0185I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0186I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0187I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0188I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0189I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0190I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0191I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0192I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0193I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0194I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0195I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0196I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0197I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0309I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0310I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0311I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0312I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0313I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0314I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0315I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0316I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0317I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0318I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0319I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0320I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0321I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0322I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0323I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0324I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0325I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0326I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0327I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0328I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0329I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0330I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0331I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0332I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0333I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0334I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0335I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0336I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0337I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0338I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0339I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0340I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0341I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0342I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0343I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0344I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0345I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0346I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0347I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0348I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0349I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0350I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0351I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0352I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0353I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0354I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0355I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0356I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0357I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0358I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0359I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0360I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0361I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0362I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0363I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0364I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0365I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0366I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0367I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0368I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0369I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0370I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0371I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0372I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0373I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0374I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0375I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0376I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0377I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0378I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0379I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0380I_weight.fits /volumes/abraham/xcor_data/ATLAS_mwa57639/02a57639o0381I_weight.fits -c stack_whole_field.swarp -IMAGEOUT_NAME /volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field_bgsub.fits -WEIGHTOUT_NAME /volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field_bgsub_weight.fits -RESAMPLING_TYPE NEAREST -PIXEL_SCALE 1.86 -IMAGE_SIZE 38709,38709 -CENTER 0.0,-30.0"/>
+   <PARAM name="Prefs_Name" datatype="char" arraysize="*" ucd="obs.param;meta.file" value="stack_whole_field.swarp"/>
+   <PARAM name="ImageOut_Name" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value="/volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field_bgsub.fits"/>
+   <PARAM name="WeightOut_Name" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value="/volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field_bgsub_weight.fits"/>
+   <PARAM name="Header_Only" datatype="boolean" ucd="meta.code;obs.param" value="F"/>
+   <PARAM name="Header_Suffix" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value=".head"/>
+   <PARAM name="Weight_Suffix" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value=".weight.fits"/>
+   <PARAM name="Combine" datatype="boolean" ucd="meta.code" value="T"/>
+   <PARAM name="Combine_Type" datatype="char" arraysize="*" ucd="meta.code;obs.param" value="AVERAGE"/>
+   <PARAM name="Blank_BadPixels" datatype="boolean" ucd="meta.code;obs.param" value="F"/>
+   <PARAM name="Celestial_Type" datatype="char" arraysize="*" ucd="meta;pos;obs.param" value="EQUATORIAL"/>
+   <PARAM name="Projection_Type" datatype="char" arraysize="*" ucd="meta;pos;obs.param" value="SIN"/>
+   <PARAM name="Projection_Err" datatype="float" arraysize="1" ucd="pos.angDistance;stat.max;obs.param" value="0.001" unit="pix"/>
+   <PARAM name="Center_Type" datatype="char" arraysize="*" ucd="meta.code;pos;obs.param" value="MANUAL"/>
+   <PARAM name="Center" datatype="double" arraysize="2" ucd="pos;obs.param" value="              0             -30" unit="pix"/>
+   <PARAM name="PixelScale_Type" datatype="char" arraysize="*" ucd="meta.code;pos;obs.param" value="MANUAL"/>
+   <PARAM name="Pixel_Scale" datatype="float" arraysize="1" ucd="instr.scale;instr.pixel;obs.param" value="1.86"/>
+   <PARAM name="Image_Size" datatype="int" arraysize="1" ucd="instr.scale;instr.pixel;obs.param" value="38709"/>
+   <PARAM name="Resample" datatype="boolean" ucd="meta.code" value="T"/>
+   <PARAM name="Resample_Dir" datatype="char" arraysize="*" ucd="meta.dataset" value="/Volumes/abraham/xcor_data/analysis/ATLAS_mwa57694_rereduction/field0/"/>
+   <PARAM name="Resample_Suffix" datatype="char" arraysize="*" ucd="meta.dataset;meta.file" value=".resamp.fits"/>
+   <PARAM name="Resampling_Type" datatype="char" arraysize="*" ucd="meta.code;pos;obs.param" value="NEAREST"/>
+   <PARAM name="Oversampling" datatype="int" arraysize="1" ucd="arith.factor;instr.pixel;obs.param" value="1"/>
+   <PARAM name="FScalAstro_Type" datatype="char" arraysize="*" ucd="phot.calib;obs.param" value="FIXED"/>
+   <PARAM name="FScale_Keyword" datatype="char" arraysize="*" ucd="meta.code;phot.calib;obs.param" value="FLXSCALE"/>
+   <PARAM name="FScale_Default" datatype="float" ucd="phot.calib;obs.param" value="1"/>
+   <PARAM name="Gain_Keyword" datatype="char" arraysize="*" ucd="meta.code;phot.calib;obs.param" value="GAIN"/>
+   <PARAM name="Gain_Default" datatype="float" ucd="phot.calib;obs.param" value="0"/>
+   <PARAM name="SatLev_Keyword" datatype="char" arraysize="*" ucd="meta.code;instr.saturation;obs.param" value="SATURATE"/>
+   <PARAM name="SatLev_Default" datatype="float" ucd="instr.saturation;obs.param" value="50000"/>
+   <PARAM name="Subtract_Back" datatype="boolean" ucd="meta.code" value="T"/>
+   <PARAM name="Back_Type" datatype="char" arraysize="*" ucd="meta.code;obs.param" value="NONE"/>
+   <PARAM name="Back_Size" datatype="int" ucd="obs.param" value="256"/>
+   <PARAM name="Back_FilterSize" datatype="int" ucd="obs.param" value="3"/>
+   <PARAM name="Back_Default" datatype="float" ucd="obs.param" value="0" unit="adu"/>
+   <PARAM name="Back_FiltThresh" datatype="float" ucd="phot.count;arith.ratio;obs.param" value="0"/>
+   <PARAM name="VMem_Dir" datatype="char" arraysize="*" ucd="meta" value="/Volumes/abraham/xcor_data/analysis/ATLAS_mwa57639/whole_field/"/>
+   <PARAM name="VMem_Max" datatype="int" ucd="meta.number;stat.max" value="2047" unit="Mbyte"/>
+   <PARAM name="Mem_Max" datatype="int" ucd="meta.number;stat.max" value="2047" unit="Mbyte"/>
+   <PARAM name="Combine_BufSize" datatype="int" ucd="meta.number;stat.max" value="256" unit="Mbyte"/>
+   <PARAM name="Delete_TmpFiles" datatype="boolean" ucd="meta.code" value="T"/>
+   <PARAM name="Copy_Keywords" datatype="char" arraysize="*" ucd="meta;meta.fits" value="MAGZPT  ,NSTAR   ,OBSNAME ,DATE    ,MJD-INST,AZ-CMD  ,ALT-CMD ,RA-CMD  ,DEC-CMD ,CONTROLR,FLATFILE,DARKFILE,DARKSCAL,MASKFILE,SATURATE,SKYADU  ,EXPTIME ,AIRMASS ,HA      ,FILTER  "/>
+   <PARAM name="Write_FileInfo" datatype="boolean" ucd="meta.code" value="F"/>
+   <PARAM name="Verbose_Type" datatype="char" arraysize="*" ucd="meta.code" value="FULL"/>
+  </RESOURCE>
+ </RESOURCE>
+</RESOURCE>
+</VOTABLE>

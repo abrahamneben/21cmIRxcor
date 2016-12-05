@@ -20,6 +20,11 @@ class Catalog:
              (self.dec > cat.min_dec)&(self.dec < cat.max_dec)
         return Catalog(self.ra[g1],self.dec[g1],self.jy[g1])
     
+    def limit_to_ra_dec_min_max(self,min_ra,max_ra,min_dec,max_dec):
+        g1 = (self.ra > min_ra)&(self.ra < max_ra)&\
+             (self.dec > min_dec)&(self.dec < max_dec)
+        return Catalog(self.ra[g1],self.dec[g1],self.jy[g1])
+    
     def join_with_cat(self,cat):
         return Catalog(np.append(self.ra,cat.ra), np.append(self.dec,cat.dec), np.append(self.jy,cat.jy))
     
@@ -37,7 +42,7 @@ class MWACatalog(Catalog):
     
 class IRCatalog(Catalog):
     # note that the given fits image must be in ortho projection, ie, with swarp
-    def __init__(self,dph_path='',se_path='',fits_path=''):
+    def __init__(self,dph_path='',se_path='',fits_path='',se_magzpt=20.56):
         assert dph_path != '' or se_path != ''
         
         if dph_path != '':
@@ -57,7 +62,7 @@ class IRCatalog(Catalog):
             self.ra_all = se_dat[:,3]
             self.ra_all[self.ra_all>180] -= 360
             self.dec_all = se_dat[:,4]
-            self.jy_all = 3631*10.**(-20.56/2.5)*se_counts/30
+            self.jy_all = 3631*10.**(-se_magzpt/2.5)*se_counts/30
         
         if fits_path != '':
             self.identify_catalog_artifacts(fits_path)
@@ -81,6 +86,7 @@ class IRCatalog(Catalog):
 
         num_artifacts_near_every_source = np.zeros(len(self.ra_all),dtype=bool)
         for i in range(len(art_ra)):
+            if i % 1000 == 0: print(1.*i/len(art_ra))
             num_artifacts_near_every_source += np.sqrt((self.dec_all-art_dec[i])**2+\
                                                        np.cos(self.dec_all)**2*(self.ra_all-art_ra[i])**2) < artifact_masking_radius_asec/3600
         g = num_artifacts_near_every_source == 0
@@ -130,7 +136,7 @@ def make_hann(n):
     w2 = wx*wy
     return w2, np.sqrt(np.mean(w2**2))
 
-def calc_xspec(img1,img2,dtheta_deg,nbins,lmax,hann=True):
+def calc_xspec(img1,img2,dtheta_deg,nbins,lmin,lmax,hann=True):
     assert img1.shape == img2.shape
     
     n,dang = img1.shape[0],dtheta_deg*np.pi/180.
@@ -145,7 +151,7 @@ def calc_xspec(img1,img2,dtheta_deg,nbins,lmax,hann=True):
     img1_ft = np.fft.fft2(hann2D*(img1-img1.mean()))/hann2Drms
     img2_ft = np.fft.fft2(hann2D*(img2-img2.mean()))/hann2Drms
     
-    lbinedges = np.linspace(0,lmax,nbins+1)
+    lbinedges = np.linspace(lmin,lmax,nbins+1)
     lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
     
     xspec_binned = np.zeros(nbins)
