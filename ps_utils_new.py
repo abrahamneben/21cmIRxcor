@@ -177,6 +177,45 @@ def ir_and_radio_xspec(ir_image,ir_label,mwa_image,mwa_label,nbins,lmax):
     pspec_norm = (dang**2)/(n**2)
     return lbincenters,irspec_binned*pspec_norm,mwaspec_binned*pspec_norm,xspec_binned*pspec_norm,bin_counts,bin_sum_weights,bin_sum_squared_weights
     
+def ir_and_ir_full_xspec(ir_image1,ir_image2,nbins,lmin,lmax,flip=False):
+   
+    ir_img1 = ir_image1.full_ADU
+    ir_img2 = ir_image2.full_ADU
+    if flip: ir_img2 = np.fliplr(np.flipud(ir_img2))
+    
+    n,dang = ir_img1.shape[0], ir_image1.dtheta_rad
+    hann2D,hann2Drms = make_hann(n)
+    lvals = np.fft.fftfreq(n)*2*pi/dang
+    lx,ly = np.meshgrid(lvals,lvals)
+    lmag  = np.sqrt(lx**2+ly**2)
+
+    # FFT the (MWA dirty image) and (IR image)
+    ir_ft1 = np.fft.fft2((ir_img1-ir_img1.mean())*hann2D)/hann2Drms
+    ir_ft2 = np.fft.fft2((ir_img2-ir_img2.mean())*hann2D)/hann2Drms
+    
+    lbinedges = np.linspace(lmin,lmax,nbins+1)
+    lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
+    
+    xspec_binned = np.zeros(nbins)
+    irspec1_binned = np.zeros(nbins)
+    irspec2_binned = np.zeros(nbins)
+
+    bin_counts = np.zeros(nbins)
+    bin_sum_weights = np.zeros(nbins)
+    bin_sum_squared_weights = np.zeros(nbins)
+    for bini in range(nbins):
+        inbin = (lmag>lbinedges[bini])&(lmag<lbinedges[bini+1])
+        bin_counts[bini] = np.sum(inbin)
+
+        xspec_binned[bini] = np.sum(ir_ft1[inbin]*np.conj(ir_ft2[inbin]))/np.sum(inbin)
+        irspec1_binned[bini] = np.mean(np.abs(ir_ft1[inbin])**2)
+        irspec2_binned[bini] = np.mean(np.abs(ir_ft2[inbin])**2)
+        
+        bin_counts[bini] = np.sum(inbin)
+        
+    pspec_norm = (dang**2)/(n**2)
+    return lbincenters,xspec_binned*pspec_norm,irspec1_binned*pspec_norm,irspec2_binned*pspec_norm,bin_counts
+    
     
     
     

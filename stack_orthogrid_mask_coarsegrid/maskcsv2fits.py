@@ -6,9 +6,20 @@ import sys
 from astropy.io import fits
 from astropy import wcs
 
+# def mask_circle_in_image(img,xcent,ycent,r):
+# 	n=img.shape[0]
+# 	for y in range(-int(r),int(r)+1): # x is the x distance from circle center
+# 		img[ycent+y,int(xcent-np.sqrt(r**2-y**2)):int(xcent+np.sqrt(r**2-y**2))] = 0
+
 def mask_circle_in_image(img,xcent,ycent,r):
+	n=img.shape[0]
+	if not ((0<=xcent<n) and (0<=ycent<n)): return
 	for y in range(-int(r),int(r)+1): # x is the x distance from circle center
-		img[ycent+y,int(xcent-np.sqrt(r**2-y**2)):int(xcent+np.sqrt(r**2-y**2))] = 0
+		if not (0 <= ycent+y < n): continue
+		#print(n)
+		#print(int(xcent-np.sqrt(r**2-y**2)),int(xcent+np.sqrt(r**2-y**2)))
+		#rint(max(0,int(xcent-np.sqrt(r**2-y**2))),min(n,int(xcent+np.sqrt(r**2-y**2))),)
+		img[ycent+y,max(0,int(xcent-np.sqrt(r**2-y**2))):min(n,int(xcent+np.sqrt(r**2-y**2)))] = 0
 
 if len(sys.argv) != 4:
 	print('Usage: ./maskcsv2fits.py [original fits image] [CSV region file] [mask output fits file]')

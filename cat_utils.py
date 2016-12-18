@@ -5,10 +5,13 @@ from scipy.io import readsav
 import scipy.signal
 
 class Catalog:
-    def __init__(self,ra,dec,jy):
+    def __init__(self,ra,dec,jy,dra=None,ddec=None):
         self.ra = ra
+        self.ra[self.ra>180] -= 360
         self.dec = dec
         self.jy = jy
+        self.dra = dra
+        self.ddec = ddec
         self.calc_min_max_ra_dec()
          
     def calc_min_max_ra_dec(self):
@@ -136,7 +139,7 @@ def make_hann(n):
     w2 = wx*wy
     return w2, np.sqrt(np.mean(w2**2))
 
-def calc_xspec(img1,img2,dtheta_deg,nbins,lmin,lmax,hann=True):
+def calc_xspec(img1,img2,dtheta_deg,nbins,lmin,lmax,hann=True,uselogbins=False):
     assert img1.shape == img2.shape
     
     n,dang = img1.shape[0],dtheta_deg*np.pi/180.
@@ -147,11 +150,15 @@ def calc_xspec(img1,img2,dtheta_deg,nbins,lmin,lmax,hann=True):
     lvals = np.fft.fftfreq(n)*2*np.pi/dang
     lx,ly = np.meshgrid(lvals,lvals)
     lmag  = np.sqrt(lx**2+ly**2)
+    print('maximum ell is %d'%int(np.max(lmag)))
 
     img1_ft = np.fft.fft2(hann2D*(img1-img1.mean()))/hann2Drms
     img2_ft = np.fft.fft2(hann2D*(img2-img2.mean()))/hann2Drms
     
-    lbinedges = np.linspace(lmin,lmax,nbins+1)
+    if uselogbins: 
+        lbinedges = 10.**np.linspace(np.log10(lmin),np.log10(lmax),nbins+1)
+    else:
+        lbinedges = np.linspace(lmin,lmax,nbins+1)
     lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
     
     xspec_binned = np.zeros(nbins)
