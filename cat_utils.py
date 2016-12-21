@@ -18,7 +18,7 @@ class Catalog:
         self.min_ra, self.max_ra, self.min_dec, self.max_dec = np.min(self.ra),np.max(self.ra),np.min(self.dec),np.max(self.dec)
         self.mean_dec = np.mean(self.dec)
         
-    def limit_to_ra_dec_min_max_of_other_cat(self,cat):
+    def bound_with_cat(self,cat): # formerly called "limit_to_ra_dec_min_max_of_other_cat"
         g1 = (self.ra > cat.min_ra)&(self.ra < cat.max_ra)&\
              (self.dec > cat.min_dec)&(self.dec < cat.max_dec)
         return Catalog(self.ra[g1],self.dec[g1],self.jy[g1])
@@ -31,6 +31,9 @@ class Catalog:
     def join_with_cat(self,cat):
         return Catalog(np.append(self.ra,cat.ra), np.append(self.dec,cat.dec), np.append(self.jy,cat.jy))
     
+    def with_flux_cuts(self,p1,p2): # p1 and p2 are from 0 to 100
+        g = (np.percentile(self.jy,p1)<self.jy)&(self.jy<np.percentile(self.jy,p2))
+        return Catalog(self.ra[g],self.dec[g],self.jy[g])
 
 class MWACatalog(Catalog):
     def __init__(self,fhdsavpath):
@@ -111,7 +114,7 @@ def plot_catalog_boundary(plt,cat,col):
     ra0,ra1,dec0,dec1 = cat.min_ra,cat.max_ra,cat.min_dec,cat.max_dec
     plt.plot([ra0,ra1,ra1,ra0,ra0],[dec0,dec0,dec1,dec1,dec0],col+'-')
     
-def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9,verbose=False):
+def cat2img(cat,bound_cat,dtheta_deg,jymin=0,jymax=1.e9,verbose=False):
     fluxcut = (cat.jy < jymax)&(cat.jy > jymin)
     thetax_fluxcut = np.cos(cat.mean_dec*np.pi/180.)*cat.ra[fluxcut]
     thetay_fluxcut = cat.dec[fluxcut]
@@ -121,17 +124,19 @@ def cat2img(cat,bound_cat,dtheta,jymin=0,jymax=1.e9,verbose=False):
     thetay0 = bound_cat.min_dec
 
     fov = np.min([bound_cat.max_dec-bound_cat.min_dec,np.cos(bound_cat.mean_dec*np.pi/180.)*(bound_cat.max_ra-bound_cat.min_ra)])
-    n = int(fov/dtheta)
+    n = int(fov/dtheta_deg)
 
-    img = np.zeros((n,n))
+    jyimg = np.zeros((n,n))
+    countsimg = np.zeros((n,n))
     for xi in range(n):
-        if verbose and xi % 20 == 0: print(1.*xi/n)
+        if verbose and xi % 2 == 0: print(1.*xi/n)
         for yi in range(n):
-            inpixel = (thetax_fluxcut > thetax0+xi*dtheta)&(thetax_fluxcut < thetax0+(xi+1)*dtheta)&\
-                      (thetay_fluxcut > thetay0+yi*dtheta)&(thetay_fluxcut < thetay0+(yi+1)*dtheta)
-            img[xi,yi] = np.sum(jy_fluxcut[inpixel])
+            inpixel = (thetax_fluxcut > thetax0+xi*dtheta_deg)&(thetax_fluxcut < thetax0+(xi+1)*dtheta_deg)&\
+                      (thetay_fluxcut > thetay0+yi*dtheta_deg)&(thetay_fluxcut < thetay0+(yi+1)*dtheta_deg)
+            jyimg[xi,yi] = np.sum(jy_fluxcut[inpixel])
+            countsimg[xi,yi] = np.sum(inpixel)
     
-    return img
+    return jyimg,countsimg
 
 def make_hann(n):
     w = scipy.signal.hann(n)
