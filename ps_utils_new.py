@@ -177,7 +177,7 @@ def ir_and_radio_xspec(ir_image,ir_label,mwa_image,mwa_label,nbins,lmax):
     pspec_norm = (dang**2)/(n**2)
     return lbincenters,irspec_binned*pspec_norm,mwaspec_binned*pspec_norm,xspec_binned*pspec_norm,bin_counts,bin_sum_weights,bin_sum_squared_weights
     
-def ir_and_ir_full_xspec(ir_image1,ir_image2,nbins,lmin,lmax,flip=False):
+def ir_and_ir_full_xspec(ir_image1,ir_image2,nbins,lmin,lmax,flip=False,uselogbins=False):
    
     ir_img1 = ir_image1.full_ADU
     ir_img2 = ir_image2.full_ADU
@@ -188,12 +188,16 @@ def ir_and_ir_full_xspec(ir_image1,ir_image2,nbins,lmin,lmax,flip=False):
     lvals = np.fft.fftfreq(n)*2*pi/dang
     lx,ly = np.meshgrid(lvals,lvals)
     lmag  = np.sqrt(lx**2+ly**2)
+    print(np.max(lmag))
 
     # FFT the (MWA dirty image) and (IR image)
     ir_ft1 = np.fft.fft2((ir_img1-ir_img1.mean())*hann2D)/hann2Drms
     ir_ft2 = np.fft.fft2((ir_img2-ir_img2.mean())*hann2D)/hann2Drms
     
-    lbinedges = np.linspace(lmin,lmax,nbins+1)
+    if uselogbins: 
+        lbinedges = 10.**np.linspace(np.log10(lmin),np.log10(lmax),nbins+1)
+    else:
+        lbinedges = np.linspace(lmin,lmax,nbins+1)
     lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
     
     xspec_binned = np.zeros(nbins)
