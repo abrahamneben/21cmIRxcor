@@ -1,0 +1,125 @@
+[I 20:38:22.445 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+[I 20:38:22.998 NotebookApp] Serving notebooks from local directory: /home/ubuntu/21cmIRxcor
+[I 20:38:22.998 NotebookApp] 0 active kernels 
+[I 20:38:22.998 NotebookApp] The Jupyter Notebook is running at: https://[all ip addresses on your system]:8910/
+[I 20:38:22.998 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 20:38:31.975 NotebookApp] 302 GET / (66.31.45.90) 0.56ms
+[I 20:38:32.004 NotebookApp] 302 GET /tree (66.31.45.90) 0.73ms
+[I 20:38:48.172 NotebookApp] 302 POST /login?next=%2Ftree (66.31.45.90) 0.71ms
+[I 20:38:54.351 NotebookApp] Creating new notebook in 
+[I 20:38:56.146 NotebookApp] Kernel started: d85ed22b-749c-452c-95b4-2d29e4faaa99
+[I 20:39:56.661 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[W 20:40:50.761 NotebookApp] Notebook 3Dsensitivitycalculations/3D_xspec_sensitivity_calc.ipynb is not trusted
+[I 20:40:51.748 NotebookApp] Kernel started: 6042b2d6-e9d4-4138-9fb5-2f4b9aac3a5d
+[I 20:41:47.148 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:42:44.214 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:42:52.795 NotebookApp] Saving file at /3Dsensitivitycalculations/3D_xspec_sensitivity_calc.ipynb
+[W 20:42:52.796 NotebookApp] Saving untrusted notebook 3Dsensitivitycalculations/3D_xspec_sensitivity_calc.ipynb
+[I 20:42:56.156 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:43:21.616 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:43:50.865 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:44:56.158 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:46:52.453 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:46:56.150 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:47:21.098 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:47:23.047 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:47:23.290 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:47:24.636 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:56:56.205 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:58:23.323 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:58:26.848 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 20:58:56.137 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:05.307 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:05.535 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:05.765 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:20.242 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:20.480 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:21.174 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:21.628 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:21.872 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:22.240 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:00:56.133 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:02:56.131 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:04:24.533 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:04:29.115 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:05:59.774 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:06:56.119 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:08:56.121 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:09:38.084 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:10:56.139 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:10:57.528 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:11:10.121 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:12:56.112 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:13:27.228 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:13:27.650 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:13:27.908 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:14:08.538 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:14:42.466 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:14:56.174 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:12.856 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:13.250 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:13.535 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:46.319 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:52.672 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:53.038 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:53.344 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:56.833 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:57.307 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:15:57.566 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:16:41.297 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:16:56.107 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:17:56.562 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:04.199 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:05.329 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:05.820 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:06.463 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:06.819 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:07.129 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:07.441 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:18:56.619 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:20:34.856 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:20:54.580 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:20:56.109 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:21:00.674 NotebookApp] Kernel restarted: d85ed22b-749c-452c-95b4-2d29e4faaa99
+[I 21:21:01.787 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:35.961 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:46.727 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:46.845 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:53.596 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:53.805 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:57.618 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:22:57.917 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:23:48.097 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:23:48.315 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:25:10.029 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:25:10.201 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:25:14.502 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:25:14.726 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:46:57.074 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:48:56.860 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:49:35.354 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:50:07.874 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:50:13.512 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:50:19.189 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:50:27.024 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:50:56.838 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:52:16.760 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:52:56.883 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:53:54.234 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:54:56.823 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:55:52.398 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 21:56:56.819 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[I 22:00:19.595 NotebookApp] Saving file at /3Dsensitivitycalculations/3D_xspec_sensitivity_calc.ipynb
+[W 22:00:19.595 NotebookApp] Saving untrusted notebook 3Dsensitivitycalculations/3D_xspec_sensitivity_calc.ipynb
+[I 22:00:20.424 NotebookApp] Saving file at /end_to_end_sim.ipynb
+[C 22:00:28.874 NotebookApp] received signal 15, stopping
+[I 22:00:28.875 NotebookApp] Shutting down kernels
+[I 22:00:28.876 NotebookApp] Kernel shutdown: d85ed22b-749c-452c-95b4-2d29e4faaa99
+[I 22:00:28.976 NotebookApp] Kernel shutdown: 6042b2d6-e9d4-4138-9fb5-2f4b9aac3a5d
+[I 23:01:21.315 NotebookApp] The port 8910 is already in use, trying another random port.
+[I 23:01:21.319 NotebookApp] Serving notebooks from local directory: /home/ubuntu/21cmIRxcor
+[I 23:01:21.319 NotebookApp] 0 active kernels 
+[I 23:01:21.319 NotebookApp] The Jupyter Notebook is running at: https://[all ip addresses on your system]:8911/
+[I 23:01:21.319 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 23:02:35.211 NotebookApp] received signal 15, stopping
+[I 23:02:35.211 NotebookApp] Shutting down kernels
