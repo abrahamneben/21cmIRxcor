@@ -123,3 +123,27 @@
 [I 23:01:21.319 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 [C 23:02:35.211 NotebookApp] received signal 15, stopping
 [I 23:02:35.211 NotebookApp] Shutting down kernels
+[I 16:28:22.257 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+[I 16:28:22.806 NotebookApp] Serving notebooks from local directory: /home/ubuntu/21cmIRxcor
+[I 16:28:22.806 NotebookApp] 0 active kernels 
+[I 16:28:22.806 NotebookApp] The Jupyter Notebook is running at: https://[all ip addresses on your system]:8910/
+[I 16:28:22.806 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 16:28:35.398 NotebookApp] 302 GET /notebooks/21cmIRxcor/end_to_end_sim/end_to_end_sim.ipynb (66.31.45.90) 0.91ms
+[I 16:28:50.087 NotebookApp] 302 POST /login?next=%2Fnotebooks%2F21cmIRxcor%2Fend_to_end_sim%2Fend_to_end_sim.ipynb (66.31.45.90) 0.75ms
+[W 16:28:50.117 NotebookApp] 404 GET /notebooks/21cmIRxcor/end_to_end_sim/end_to_end_sim.ipynb (66.31.45.90): No such file or directory: 21cmIRxcor/end_to_end_sim/end_to_end_sim.ipynb
+[W 16:28:50.122 NotebookApp] 404 GET /notebooks/21cmIRxcor/end_to_end_sim/end_to_end_sim.ipynb (66.31.45.90) 6.19ms referer=https://52.3.251.91:8910/login?next=%2Fnotebooks%2F21cmIRxcor%2Fend_to_end_sim%2Fend_to_end_sim.ipynb
+[I 16:28:57.653 NotebookApp] Kernel started: 1d5e4255-84bd-47e7-9469-9b628d09338c
+[I 16:30:38.478 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:30:58.089 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:32:58.000 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:34:58.111 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:35:48.445 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:36:57.977 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:37:20.250 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:38:57.965 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:40:58.080 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:42:58.083 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:44:58.111 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:46:58.071 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 16:47:52.342 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
+[I 17:20:42.174 NotebookApp] Saving file at /end_to_end_sim/end_to_end_sim.ipynb
