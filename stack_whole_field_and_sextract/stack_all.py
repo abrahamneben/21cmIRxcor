@@ -8,9 +8,9 @@ labels = open('ATLAS_mwa57639_labels_good.txt').read().split('\n')
 
 print(labels)
 
-fine_pixel_asec = 1.86
-fov_deg = 5.
-n_fine = int(fov_deg*3600./fine_pixel_asec)
+# fine_pixel_asec = 1.86
+# fov_deg = 5.
+# n_fine = int(fov_deg*3600./fine_pixel_asec)
 
 ra_cent_deg = 0.
 dec_cent_deg = -30.

@@ -226,7 +226,20 @@ def plot_spectra(plt,lbins,pspec1,pspec2,xspec,bin_counts,ir_mwa_jymin_max,irlim
     
     plt.tight_layout()
     
- 
+
+
+def semilogyhist(plt,dat,bin_min,bin_max,num_bins,col):
+    counts,bins = np.histogram(dat, 10.**np.linspace(np.log10(bin_min),np.log10(bin_max),num_bins+1))
+    print(len(counts),len(bins))
+    
+    plt.semilogy([bins[0],bins[0]],[.000001,counts[0]],col)
+    for i in range(num_bins-1):
+        plt.semilogy([bins[i],bins[i+1],bins[i+1]],[counts[i],counts[i],counts[i+1]],col,lw=2)
+    plt.semilogy([bins[num_bins-1],bins[num_bins],bins[num_bins]],[counts[num_bins-1],counts[num_bins-1],.01],col,lw=2)
+    
+        
+    plt.ylim([.25*np.min(counts),2*np.max(counts)])
+    
     
 def logloghist(plt,dat,bin_min,bin_max,num_bins,col):
     counts,bins = np.histogram(dat, 10.**np.linspace(np.log10(bin_min),np.log10(bin_max),num_bins+1))
@@ -238,5 +251,5 @@ def logloghist(plt,dat,bin_min,bin_max,num_bins,col):
     plt.loglog([bins[num_bins-1],bins[num_bins],bins[num_bins]],[counts[num_bins-1],counts[num_bins-1],.01],col,lw=2)
     
         
-    plt.ylim([10,1.6*np.max(counts)])
+    plt.ylim([.25*np.min(counts),2*np.max(counts)])
     
