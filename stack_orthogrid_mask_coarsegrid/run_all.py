@@ -3,7 +3,7 @@
 from subprocess import call
 
 #runs = ['ATLAS_mwa57694','ATLAS_mwa57694_rereduction']
-runs = ['ATLAS_mwa57694']
+runs = ['ATLAS_mwa57694_rereduction']
 
 label_groups = [ \
 '02a57694o0299I 02a57694o0303I 02a57694o0307I 02a57694o0319I 02a57694o0323I 02a57694o0327I 02a57694o0339I 02a57694o0343I 02a57694o0347I', \

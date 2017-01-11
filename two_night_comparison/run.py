@@ -15,7 +15,7 @@ analysis_root = '/Volumes/abraham/xcor_data/analysis/two_night_comparison/'
 ra_cent_deg = -3.4
 dec_cent_deg = -23.5
 
-target_coarse_res_asec = 6.*60
+target_coarse_res_asec = 6.5*60
 coarse_bin_factor = int(np.round(target_coarse_res_asec/fine_pixel_asec))
 
 for i in range(2):
@@ -23,15 +23,15 @@ for i in range(2):
 
 	# stack
 
-	call(['swarp']+[raw_frames_roots[i]+l+'.fits' for l in labels[i]]+\
-		['-WEIGHT_TYPE','MAP_WEIGHT']+\
-		['-WEIGHT_IMAGE']+[' '.join([raw_frames_roots[i]+l+'_weight.fits' for l in labels[i]])]+\
-	['-c','two_night_comparison.swarp', \
-	'-IMAGEOUT_NAME',analysis_root+analysis_name+'.fits', \
-	'-WEIGHTOUT_NAME',analysis_root+analysis_name+'_weight.fits', \
-	'-RESAMPLING_TYPE','NEAREST', '-PIXEL_SCALE',str(fine_pixel_asec), \
-	'-IMAGE_SIZE',str(n_fine)+','+str(n_fine),
-	'-CENTER',str(ra_cent_deg)+','+str(dec_cent_deg)])
+	# call(['swarp']+[raw_frames_roots[i]+l+'.fits' for l in labels[i]]+\
+	# 	['-WEIGHT_TYPE','MAP_WEIGHT']+\
+	# 	['-WEIGHT_IMAGE']+[' '.join([raw_frames_roots[i]+l+'_weight.fits' for l in labels[i]])]+\
+	# ['-c','two_night_comparison.swarp', \
+	# '-IMAGEOUT_NAME',analysis_root+analysis_name+'.fits', \
+	# '-WEIGHTOUT_NAME',analysis_root+analysis_name+'_weight.fits', \
+	# '-RESAMPLING_TYPE','NEAREST', '-PIXEL_SCALE',str(fine_pixel_asec), \
+	# '-IMAGE_SIZE',str(n_fine)+','+str(n_fine),
+	# '-CENTER',str(ra_cent_deg)+','+str(dec_cent_deg)])
 
 	# generate source lists for masking
 	call(['../stack_orthogrid_mask_coarsegrid/catalog_to_mask_lists.py',analysis_root+analysis_name+'.fits',\

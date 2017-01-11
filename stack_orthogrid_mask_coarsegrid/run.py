@@ -50,50 +50,53 @@ if not os.path.isdir(analysis_root):
 # 		call(['funpack','-E','1','-O',analysis_root+l+'_original.fits',raw_frames_root+l+'.fits.fz'])
 
 # swarp
-if not os.path.isfile(analysis_root + analysis_name + '.fits') or override_swarp:
-	call(['swarp']+[raw_frames_root+l+'.fits' for l in labels]+['-c','grid_to_ortho.swarp', \
-	'-IMAGEOUT_NAME',analysis_root+analysis_name+'.fits', \
-	'-WEIGHTOUT_NAME','/dev/null', \
-	'-RESAMPLING_TYPE','NEAREST', '-PIXEL_SCALE',str(fine_pixel_asec), \
-	'-IMAGE_SIZE',str(n_fine)+','+str(n_fine),
-	'-CENTER',str(ra_cent_deg)+','+str(dec_cent_deg)])
+# if not os.path.isfile(analysis_root + analysis_name + '.fits') or override_swarp:
+# 	call(['swarp']+[raw_frames_root+l+'.fits' for l in labels]+['-c','grid_to_ortho.swarp', \
+# 	'-IMAGEOUT_NAME',analysis_root+analysis_name+'.fits', \
+# 	'-WEIGHTOUT_NAME','/dev/null', \
+# 	'-RESAMPLING_TYPE','NEAREST', '-PIXEL_SCALE',str(fine_pixel_asec), \
+# 	'-IMAGE_SIZE',str(n_fine)+','+str(n_fine),
+# 	'-CENTER',str(ra_cent_deg)+','+str(dec_cent_deg)])
+
+call(['sex',analysis_root+analysis_name+'.fits','-c','source_finding.sex',\
+      '-CATALOG_NAME',analysis_root+analysis_name+'.sex',])
 
 
-# generate source lists for masking
-if not (os.path.isfile(analysis_root+analysis_name+'_artifacts_sources.reg') and \
-           os.path.isfile(analysis_root+analysis_name+'_artifacts_sources.csv') and \
-           os.path.isfile(analysis_root+analysis_name+'_artifacts.csv')) or override_source_lists:
+# # generate source lists for masking
+# if not (os.path.isfile(analysis_root+analysis_name+'_artifacts_sources.reg') and \
+#            os.path.isfile(analysis_root+analysis_name+'_artifacts_sources.csv') and \
+#            os.path.isfile(analysis_root+analysis_name+'_artifacts.csv')) or override_source_lists:
 
-        printbig('generating source lists for masking')
-        call(['./catalog_to_mask_lists.py',analysis_root+analysis_name+'.fits',\
-              raw_frames_root+labels[0]+'.dph',analysis_root,labels[0]])
+#         printbig('generating source lists for masking')
+#         call(['./catalog_to_mask_lists.py',analysis_root+analysis_name+'.fits',\
+#               raw_frames_root+labels[0]+'.dph',analysis_root,labels[0]])
 
-# make fine res fits image of masks for debugging
-# and with just bright pixel artifacts masked
-if not (os.path.isfile(analysis_root+analysis_name+'_artifacts_sources.fits') and \
-          os.path.isfile(analysis_root+analysis_name+'_artifacts.fits')) or override_gen_masks:
+# # make fine res fits image of masks for debugging
+# # and with just bright pixel artifacts masked
+# if not (os.path.isfile(analysis_root+analysis_name+'_artifacts_sources.fits') and \
+#           os.path.isfile(analysis_root+analysis_name+'_artifacts.fits')) or override_gen_masks:
 
-        printbig('making fits images of masks')
-        call(['./maskcsv2fits.py',analysis_root+analysis_name+'.fits', \
-              analysis_root+labels[0]+'_artifacts_sources.csv', \
-              analysis_root+analysis_name+'_artifacts_sources.fits'])
+#         printbig('making fits images of masks')
+#         call(['./maskcsv2fits.py',analysis_root+analysis_name+'.fits', \
+#               analysis_root+labels[0]+'_artifacts_sources.csv', \
+#               analysis_root+analysis_name+'_artifacts_sources.fits'])
 
-        call(['./maskcsv2fits.py',analysis_root+analysis_name+'.fits', \
-              analysis_root+labels[0]+'_artifacts.csv', \
-              analysis_root+analysis_name+'_artifacts.fits'])
+#         call(['./maskcsv2fits.py',analysis_root+analysis_name+'.fits', \
+#               analysis_root+labels[0]+'_artifacts.csv', \
+#               analysis_root+analysis_name+'_artifacts.fits'])
 
-# bin to 3' resolution, excluding masked regions
-if not (os.path.isfile(analysis_root+analysis_name+'_mask_artifacts_coarse.fits') and \
-        os.path.isfile(analysis_root+analysis_name+'_mask_artifacts_sources_coarse.fits')) or override_coarse_binning:
+# # bin to 3' resolution, excluding masked regions
+# if not (os.path.isfile(analysis_root+analysis_name+'_mask_artifacts_coarse.fits') and \
+#         os.path.isfile(analysis_root+analysis_name+'_mask_artifacts_sources_coarse.fits')) or override_coarse_binning:
 
-        printbig('coarse binning by factor of '+str(coarse_bin_factor)+' to'+str(fine_pixel_asec*coarse_bin_factor/60.)+'\' res')
-        call(['./coarse_bin_fits_image_with_mask.py',analysis_root+analysis_name+'.fits', \
-             analysis_root+analysis_name+'_artifacts_sources.fits', \
-             analysis_root+analysis_name+'_mask_artifacts_sources_coarse.fits', \
-             analysis_root+analysis_name+'_mask_artifacts_sources_coarse_weights.fits',str(coarse_bin_factor)])
+#         printbig('coarse binning by factor of '+str(coarse_bin_factor)+' to'+str(fine_pixel_asec*coarse_bin_factor/60.)+'\' res')
+#         call(['./coarse_bin_fits_image_with_mask.py',analysis_root+analysis_name+'.fits', \
+#              analysis_root+analysis_name+'_artifacts_sources.fits', \
+#              analysis_root+analysis_name+'_mask_artifacts_sources_coarse.fits', \
+#              analysis_root+analysis_name+'_mask_artifacts_sources_coarse_weights.fits',str(coarse_bin_factor)])
 
-        call(['./coarse_bin_fits_image_with_mask.py',analysis_root+analysis_name+'.fits', \
-             analysis_root+analysis_name+'_artifacts.fits', \
-             analysis_root+analysis_name+'_mask_artifacts_coarse.fits', \
-             analysis_root+analysis_name+'_mask_artifacts_coarse_weights.fits',str(coarse_bin_factor)])
+#         call(['./coarse_bin_fits_image_with_mask.py',analysis_root+analysis_name+'.fits', \
+#              analysis_root+analysis_name+'_artifacts.fits', \
+#              analysis_root+analysis_name+'_mask_artifacts_coarse.fits', \
+#              analysis_root+analysis_name+'_mask_artifacts_coarse_weights.fits',str(coarse_bin_factor)])
 

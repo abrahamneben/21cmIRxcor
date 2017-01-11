@@ -6,7 +6,7 @@ from astropy.io import fits
 import scipy.optimize
 
 class IRImage:
-    def __init__(self,fits_path,poly_order=4,run_poly_fit=False,fov_deg=5.):
+    def __init__(self,fits_path,poly_order=4,run_poly_fit=False,fov_deg=5.,dont_crop=False):
         print('loading '+fits_path)
         
         hdulist = fits.open(fits_path)
@@ -22,13 +22,18 @@ class IRImage:
         self.dtheta_amin = 60.*self.dtheta_deg
         self.dtheta_rad = self.dtheta_deg*np.pi/180.
         self.domega_sr = self.dtheta_rad**2
-        self.fov_deg = fov_deg
-        self.n = int(np.round(self.fov_deg/self.dtheta_deg))
         
         self.ADU_to_kjy_per_sr = 3.631*(10**(-self.MAGZPT/2.5))/self.exp_time_sec/self.domega_sr
         self.full_kjy_per_sr = self.full_ADU * self.ADU_to_kjy_per_sr
         
-        self.frame_ADU = self.crop_around_frame(self.full_ADU)
+        if dont_crop:
+            self.frame_ADU = self.full_ADU
+            self.n = self.n_full
+        else:
+            self.fov_deg = fov_deg
+            self.n = int(np.round(self.fov_deg/self.dtheta_deg))
+            self.frame_ADU = self.crop_around_frame(self.full_ADU)
+            
         self.ADU_to_rawADU = (1.86/60**2*np.pi/180.)**2/(self.domega_sr)
         self.frame_rawADU = self.frame_ADU*self.ADU_to_rawADU
         self.frame_kjy_per_sr = self.frame_ADU * self.ADU_to_kjy_per_sr
@@ -126,7 +131,7 @@ def make_hann(n):
     w2 = wx*wy
     return w2, np.sqrt(np.mean(w2**2))
 
-def ir_and_radio_xspec(ir_image,ir_label,mwa_image,mwa_label,nbins,lmax):
+def ir_and_radio_xspec(ir_image,ir_label,mwa_image,mwa_label,nbins,lmax,useirhann=True,usemwahann=False):
     
     assert ir_image.dtheta_rad == mwa_image.dtheta_rad
     assert ir_image.n == mwa_image.n
@@ -147,11 +152,19 @@ def ir_and_radio_xspec(ir_image,ir_label,mwa_image,mwa_label,nbins,lmax):
     lvals = np.fft.fftfreq(n)*2*pi/dang
     lx,ly = np.meshgrid(lvals,lvals)
     lmag  = np.sqrt(lx**2+ly**2)
-
+    print(np.max(lmag))
+    
+    irwind,mwawind = np.ones(ir_img.shape),np.ones(ir_img.shape)
+    irnorm,mwanorm = 1.,1.
+    if useirhann:
+        irwind,irnorm = hann2D,hann2Drms
+    if usemwahann:
+        mwawind,mwanorm = hann2D,hann2Drms
+    
     # FFT the (MWA dirty image) and (IR image)
-    ir_ft = np.fft.fft2((ir_img-ir_img.mean())*hann2D)/hann2Drms
-    mwa_dirty_ft = np.fft.fft2((mwa_dirty_img-mwa_dirty_img.mean()))
-    mwa_weights_ft = np.abs(np.fft.fft2((mwa_weights_img-mwa_weights_img.mean())))
+    ir_ft = np.fft.fft2(irwind*(ir_img-ir_img.mean()))/irnorm
+    mwa_dirty_ft = np.fft.fft2(mwawind*(mwa_dirty_img-mwa_dirty_img.mean()))/mwanorm
+    mwa_weights_ft = np.abs(np.fft.fft2((mwa_weights_img-mwa_weights_img.mean())))/mwanorm            
     
     lbinedges = np.linspace(0,lmax,nbins+1)
     lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
@@ -179,8 +192,8 @@ def ir_and_radio_xspec(ir_image,ir_label,mwa_image,mwa_label,nbins,lmax):
     
 def ir_and_ir_full_xspec(ir_image1,ir_image2,nbins,lmin,lmax,flip=False,uselogbins=False):
    
-    ir_img1 = ir_image1.full_ADU
-    ir_img2 = ir_image2.full_ADU
+    ir_img1 = ir_image1.frame_rawADU-ir_image1ir_and_radio_xspec.model_frame_rawADU
+    ir_img2 = ir_image2.frame_rawADU-ir_image2.model_frame_rawADU
     if flip: ir_img2 = np.fliplr(np.flipud(ir_img2))
     
     n,dang = ir_img1.shape[0], ir_image1.dtheta_rad
