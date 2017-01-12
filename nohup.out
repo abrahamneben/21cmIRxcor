@@ -975,3 +975,164 @@ WARNING:root:kernel d30a05ca-372f-460e-89ef-7324528cba4d restarted
 [I 04:31:15.294 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
 [I 04:31:33.000 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
 [I 04:31:47.867 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[C 04:32:25.008 NotebookApp] received signal 15, stopping
+[I 04:32:25.009 NotebookApp] Shutting down kernels
+[I 04:32:25.109 NotebookApp] Kernel shutdown: 6ce4c99f-38f8-4b88-8c84-bca9640b28a1
+[I 17:05:01.721 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+[I 17:05:02.260 NotebookApp] Serving notebooks from local directory: /home/ubuntu/21cmIRxcor
+[I 17:05:02.260 NotebookApp] 0 active kernels 
+[I 17:05:02.260 NotebookApp] The Jupyter Notebook is running at: https://[all ip addresses on your system]:8910/
+[I 17:05:02.260 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 17:05:11.724 NotebookApp] 302 GET / (66.31.45.90) 0.59ms
+[I 17:05:11.754 NotebookApp] 302 GET /tree (66.31.45.90) 0.65ms
+[I 17:06:09.806 NotebookApp] 302 GET / (66.31.45.90) 0.33ms
+[I 17:06:09.832 NotebookApp] 302 GET /tree (66.31.45.90) 0.44ms
+[I 17:06:34.511 NotebookApp] 302 POST /login?next=%2Ftree (66.31.45.90) 0.86ms
+[I 17:06:40.888 NotebookApp] Kernel started: 3bc6b9b8-62f8-4b59-a5b7-43bbe8928a61
+[I 17:07:34.452 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:07:34.836 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:07:38.519 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:07:38.935 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:07:53.064 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:07:58.423 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:08:01.980 NotebookApp] Kernel restarted: 3bc6b9b8-62f8-4b59-a5b7-43bbe8928a61
+[I 17:08:40.924 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:39.602 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:40.089 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:40.577 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:41.042 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:41.569 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:41.960 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:09:42.280 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:10:21.936 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:10:22.399 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:10:22.701 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:10:23.414 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:10:23.707 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:10:23.930 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:11:05.981 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:11:06.407 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:11:58.766 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:11:59.010 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:40.914 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:41.201 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:41.616 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:41.848 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:42.060 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:55.816 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:12:58.995 NotebookApp] Kernel restarted: 3bc6b9b8-62f8-4b59-a5b7-43bbe8928a61
+[W 17:12:58.997 NotebookApp] zmq message arrived on closed channel
+[I 17:14:39.796 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:14:39.988 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:15:00.088 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:15:00.641 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:15:00.887 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:15:01.095 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:15:16.636 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:15:18.855 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:16:01.403 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:16:01.927 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:16:02.323 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:16:02.689 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:16:03.013 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 17:16:53.493 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[C 17:17:07.881 NotebookApp] received signal 15, stopping
+[I 17:17:07.881 NotebookApp] Shutting down kernels
+[I 17:17:07.982 NotebookApp] Kernel shutdown: 3bc6b9b8-62f8-4b59-a5b7-43bbe8928a61
+[I 18:29:02.898 NotebookApp] Writing notebook server cookie secret to /run/user/1000/jupyter/notebook_cookie_secret
+[I 18:29:03.601 NotebookApp] Serving notebooks from local directory: /home/ubuntu/21cmIRxcor
+[I 18:29:03.601 NotebookApp] 0 active kernels 
+[I 18:29:03.601 NotebookApp] The Jupyter Notebook is running at: https://[all ip addresses on your system]:8910/
+[I 18:29:03.601 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 18:29:15.456 NotebookApp] 302 GET / (18.189.37.152) 0.65ms
+[I 18:29:15.474 NotebookApp] 302 GET /tree (18.189.37.152) 0.69ms
+[I 18:29:26.821 NotebookApp] 302 POST /login?next=%2Ftree (18.189.37.152) 1.00ms
+[I 18:29:35.021 NotebookApp] Kernel started: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:30:14.471 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:30:15.088 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:30:15.659 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:30:16.107 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:30:16.651 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:31:35.090 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:33:02.068 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:33:24.654 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:33:25.090 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:33:35.086 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:35:30.500 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:35:35.040 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:36:17.504 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:36:22.701 NotebookApp] Kernel restarted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:36:43.173 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:36:55.202 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:36:55.581 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:36:55.827 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:36:56.059 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:37:08.484 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:38:58.968 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:39:03.748 NotebookApp] Kernel restarted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:39:13.901 NotebookApp] Kernel interrupted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:39:24.712 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:39:28.531 NotebookApp] Kernel restarted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:39:35.081 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:39:37.015 NotebookApp] Kernel interrupted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:39:40.379 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:39:46.358 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:39:53.018 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:39:56.072 NotebookApp] Kernel restarted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[W 18:39:56.073 NotebookApp] zmq message arrived on closed channel
+[I 18:41:20.513 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:42:37.336 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:42:45.083 NotebookApp] Kernel interrupted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:42:47.516 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:42:57.625 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:42:57.919 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:42:58.073 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:43:12.059 NotebookApp] Kernel interrupted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:43:35.032 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:43:43.016 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:44:11.440 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:44:15.615 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:45:35.027 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:45:52.276 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:45:53.133 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:46:04.689 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:46:30.632 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:47:35.084 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:47:46.144 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:02.543 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:02.774 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:09.704 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:13.949 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:21.453 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:28.091 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:28.622 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:29.030 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:29.296 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:29.524 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:48:54.932 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:49:35.029 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:49:43.786 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:50:14.140 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:50:19.039 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:50:31.430 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:50:43.525 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:50:47.144 NotebookApp] Kernel restarted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[I 18:51:25.082 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:51:36.717 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:51:44.836 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:52:14.096 NotebookApp] Kernel restarted: 9425d38d-514a-4a6d-811a-014a8797e3c1
+[W 18:52:14.098 NotebookApp] zmq message arrived on closed channel
+[I 18:52:30.208 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:52:36.654 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:52:40.633 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:52:58.426 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:53:35.042 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:54:04.186 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:54:31.295 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:54:31.507 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:54:54.976 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:55:23.936 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:55:30.047 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 18:55:39.427 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 19:14:12.429 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
+[I 19:14:14.446 NotebookApp] Saving file at /test_optimal_quadratic_power_spectrum_for_ir_image_with_masking.ipynb
