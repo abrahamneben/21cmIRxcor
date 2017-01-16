@@ -24,8 +24,9 @@ override_source_lists = True
 override_gen_masks = True
 override_coarse_binning = True
 
-raw_frames_root = '/Volumes/abraham/xcor_data/'+run+'/'
-analysis_root = '/Volumes/abraham/xcor_data/analysis/'+run+'/' + analysis_name + '/'
+xcor_data_root = '/home/abrahamn/xcor_data/'
+raw_frames_root = xcor_data_root+run+'/'
+analysis_root = xcor_data_root + 'analysis/'+run+'/' + analysis_name + '/'
 
 ra_cent_deg = 0.
 dec_cent_deg = -27
@@ -38,9 +39,9 @@ target_coarse_res_asec = 7.*60
 coarse_bin_factor = int(np.round(target_coarse_res_asec/fine_pixel_asec))
 
 # create analysis_root if doesn't exist
-if not os.path.isdir(analysis_root):
-        printbig('making directory'+analysis_root)
-        os.makedirs(analysis_root)
+#if not os.path.isdir(analysis_root):
+#        printbig('making directory'+analysis_root)
+#        os.makedirs(analysis_root)
 
 # unpack .fits.fz to .fits if not already done
 # for l in labels:

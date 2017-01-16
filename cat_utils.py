@@ -5,7 +5,7 @@ from scipy.io import readsav
 import scipy.signal
 
 class Catalog:
-    def __init__(self,ra,dec,jy,dra=None,ddec=None):
+    def __init__(self,ra,dec,jy,dra=None,ddec=None,a=None,b=None):
         self.ra = ra
         self.ra[self.ra>180] -= 360
         self.dec = dec
@@ -13,6 +13,8 @@ class Catalog:
         self.dra = dra
         self.ddec = ddec
         self.calc_min_max_ra_dec()
+        self.a = a
+        self.b = b
          
     def calc_min_max_ra_dec(self):
         self.min_ra, self.max_ra, self.min_dec, self.max_dec = np.min(self.ra),np.max(self.ra),np.min(self.dec),np.max(self.dec)
@@ -69,6 +71,11 @@ class IRCatalog(Catalog):
             self.ra_all[self.ra_all>180] -= 360
             self.dec_all = se_dat[:,4]
             self.jy_all = 3631*10.**(-se_magzpt/2.5)*se_counts/30
+            
+            # RMS width
+            if len(se_dat[0,:])>5:
+                self.a = se_dat[:,5]
+                self.b = se_dat[:,6]
         
         if fits_path != '':
             self.identify_catalog_artifacts(fits_path)

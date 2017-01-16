@@ -1,6 +1,6 @@
 PARAMETERS_NAME default.param
-FILTER_NAME /Users/abrahamn/.sextractor/default.conv
-STARNNW_NAME /Users/abrahamn/.sextractor/default.nnw
+FILTER_NAME /home/abrahamn/.sextractor/default.conv
+STARNNW_NAME /home/abrahamn/.sextractor/default.nnw
 
 
 PIXEL_SCALE		1.86 # asec

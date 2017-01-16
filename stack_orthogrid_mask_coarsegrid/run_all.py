@@ -17,5 +17,5 @@ label_groups = [ \
 
 for run in runs:
 	for label_group in label_groups:
-		call(['caffeinate','-i','./run.py',run]+label_group.split(' '))
-
+	#	call(['caffeinate','-i','./run.py',run]+label_group.split(' '))
+		call(['python','run.py',run]+label_group.split(' '))
