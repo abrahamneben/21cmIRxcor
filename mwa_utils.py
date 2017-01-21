@@ -20,7 +20,7 @@ class MWAImage:
         self.dtheta_amin = 1.*dtheta_amin
         self.dtheta_rad = self.dtheta_amin/60*np.pi/180.
         self.n = n
-        self.angvals_rad = np.linspace(-self.dtheta_rad*self.n/2,self.dtheta_rad*((self.n-1.)/2.),self.n)        
+        self.angvals_rad = np.linspace(-self.dtheta_rad*self.n/2,self.dtheta_rad*((self.n-1.)/2.),self.n)
         self.freqs = np.linspace(168.e6,199.e6,384)
         
         self.dirty_xx0,self.counts_cube,self.weights_xx0,self.model_xx0,self.beam_squared_xx0 = grid_fhd_cubes(\
@@ -142,6 +142,7 @@ def img2PS(img,weight_img,pixsize_rad,nbins,lmax,backsub=False,hann=False):
     lvals = np.fft.fftfreq(n)*2*pi/dang
     lx,ly = np.meshgrid(lvals,lvals)
     lmag  = np.sqrt(lx**2+ly**2)
+    print('lmag.max() = %d'%lmag.max())
     
     w2 = np.ones((n,n))
     norm = 1
