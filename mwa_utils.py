@@ -2,6 +2,7 @@ import numpy as np
 from numpy import pi,linspace,array,fft,abs,mean,floor,zeros,sum,sqrt,sort,savez
 import healpy as hp
 from scipy.io import readsav
+import scipy.signal
 
 c=299792458.
 kb=1.3806488e-23
@@ -69,7 +70,7 @@ def argmax2D(img):
     return x[0],y[0]
         
 def crop(img,n,x_med,y_med):
-    print("cropping to (%d,%d)"%(x_med,y_med))
+    print("cropping around (%d,%d)"%(x_med,y_med))
     x1 = int(x_med-n/2+1)
     x2 = x1+n
     y1 = int(y_med-n/2+1)
@@ -96,7 +97,7 @@ def healpix_cube_to_xy_cube(healpixi_cube,hpix_inds,nside,angvals,phi0,theta0,re
         for yi in range(n):
             matchingpixels = (x_indices==xi)*(y_indices==yi)
             xy_cube[xi,yi] = mean(healpixi_cube[matchingpixels])
-            counts_cube[xi,yi] = sum(matchingpixels)
+            counts_cube[xi,yi] = np.sum(matchingpixels)
     if return_counts_cube == False: return xy_cube
     return xy_cube,counts_cube
     
