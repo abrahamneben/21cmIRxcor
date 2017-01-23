@@ -135,9 +135,15 @@ def fft_xy2uv(cube_xy, n,dtheta):
     return cube_uv
 
 
+def make_bins(lmin,lmax,nbins,uselogbins):
+    if uselogbins: 
+        lbinedges = 10.**linspace(np.log10(lmin),np.log10(lmax),nbins+1)
+    else:
+        lbinedges = linspace(lmin,lmax,nbins+1)
+    lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
+    return lbincenters,lbinedges
 
-
-def img2PS(img,weight_img,pixsize_rad,nbins,lmax,backsub=False,hann=False):
+def img2PS(img,weight_img,pixsize_rad,nbins,lmin,lmax,backsub=False,hann=False,uselogbins=True):
     n = img.shape[0]
     dang = pixsize_rad
     lvals = np.fft.fftfreq(n)*2*pi/dang
@@ -159,8 +165,7 @@ def img2PS(img,weight_img,pixsize_rad,nbins,lmax,backsub=False,hann=False):
     img_ft = np.fft.fft2((img-sub)*w2)/norm
     weight_ft = np.abs(np.fft.fft2(weight_img*w2))
     
-    lbinedges = np.linspace(1,lmax,nbins+1)
-    lbincenters = .5*(lbinedges[0:nbins]+lbinedges[1:nbins+1])
+    lbincenters,lbinedges = make_bins(lmin,lmax,nbins,uselogbins=uselogbins)
     img_ft_binned = np.zeros(nbins)
     img_ft_binned_weighted = np.zeros(nbins)
     bin_counts = np.zeros(nbins)
