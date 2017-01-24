@@ -57,9 +57,10 @@ def calc_2D_xspec(img1,img2,dtheta_rad,nbins,lmin,lmax,uselogbins=False,usehann=
     N = img1.shape[0]
     hann2D,hann2Drms = make_hann_2D(N)
     lvals = np.fft.fftfreq(N)*2*np.pi/dtheta_rad
+    dl = np.abs(lvals[1]-lvals[0])
     lx,ly = np.meshgrid(lvals,lvals)
     lmag  = np.sqrt(lx**2+ly**2)
-    print(np.max(lmag))
+    print('dl = %d\nlmax = %d\n'%(dl,np.max(lmag)))
 
     # FFT the (MWA dirty image) and (IR image)
     img1_ft = np.fft.fft2((img1-img1.mean())*hann2D)/hann2Drms
