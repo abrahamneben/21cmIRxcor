@@ -50,7 +50,7 @@ class MWACatalog(Catalog):
     
 class IRCatalog(Catalog):
     # note that the given fits image must be in ortho projection, ie, with swarp
-    def __init__(self,dph_path='',se_path='',fits_path='',se_magzpt=20.56):
+    def __init__(self,dph_path='',se_path='',fits_path='',se_magzpt=20.56,racol=1,deccol=4,countscol=1,goodsrcs=None):
         assert dph_path != '' or se_path != ''
         
         if dph_path != '':
@@ -66,20 +66,27 @@ class IRCatalog(Catalog):
         elif se_path != '':
             print('loading'+se_path)
             se_dat = np.genfromtxt(se_path)
-            se_counts = se_dat[:,1]
-            self.ra_all = se_dat[:,3]
+            se_counts = se_dat[:,countscol]
+            self.ra_all = se_dat[:,racol]
             self.ra_all[self.ra_all>180] -= 360
-            self.dec_all = se_dat[:,4]
+            self.dec_all = se_dat[:,deccol]
             self.jy_all = 3631*10.**(-se_magzpt/2.5)*se_counts/30
             
             # RMS width
-            if len(se_dat[0,:])>5:
-                self.a = se_dat[:,5]
-                self.b = se_dat[:,6]
+#            if len(se_dat[0,:])>5:
+#                self.a = se_dat[:,5]
+#                self.b = se_dat[:,6]
         
         if fits_path != '':
             self.identify_catalog_artifacts(fits_path)
             self.calc_min_max_ra_dec()
+        
+        if goodsrcs is not None:
+            print('using given goodsrcs list to exclude sources near artifacts')
+            self.g = goodsrcs
+            self.ra = self.ra_all[self.g]
+            self.dec = self.dec_all[self.g]
+            self.jy = self.jy_all[self.g]
         
     def identify_catalog_artifacts(self,orthofitsimagepath):
         print('identifying and excluding artifacts (ie, saturated pixels)')
@@ -101,9 +108,10 @@ class IRCatalog(Catalog):
         for i in range(len(art_ra)):
             if i % 1000 == 0: print(1.*i/len(art_ra))
             num_artifacts_near_every_source += np.sqrt((self.dec_all-art_dec[i])**2+\
-                                                       np.cos(self.dec_all)**2*(self.ra_all-art_ra[i])**2) < artifact_masking_radius_asec/3600
+                                                       np.cos(-29.*np.pi/180)**2*(self.ra_all-art_ra[i])**2) < artifact_masking_radius_asec/3600
         g = num_artifacts_near_every_source == 0
         
+        self.g = g
         self.ra = self.ra_all[g]
         self.dec = self.dec_all[g]
         self.jy = self.jy_all[g]
