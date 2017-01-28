@@ -2,7 +2,4 @@
 .DS_Store
 model_cubes/.ipynb_checkpoints/
 .ipynb_checkpoints/
-fg_xcor/*.png
-fg_xcor/*.pdf
-3Dsensitivitycalculations/*.pdf
 nohup.out
