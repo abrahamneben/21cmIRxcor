@@ -1,4 +1,3 @@
-#!/Users/abrahamn/anaconda2/bin/python
 
 import os
 from subprocess import call
@@ -59,7 +58,8 @@ coarse_bin_factor = int(np.round(target_coarse_res_asec/fine_pixel_asec))
 # 	'-IMAGE_SIZE',str(n_fine)+','+str(n_fine),
 # 	'-CENTER',str(ra_cent_deg)+','+str(dec_cent_deg)])
 
-call(['sex',analysis_root+analysis_name+'.fits','-c','source_finding.sex',\
+print(analysis_root+analysis_name+'.fits')
+call(['sextractor',analysis_root+analysis_name+'.fits','-c','source_finding.sex',\
       '-CATALOG_NAME',analysis_root+analysis_name+'.sex',])
 
 

@@ -1,4 +1,3 @@
-#!/Users/abrahamn/anaconda2/bin/python
 
 from subprocess import call
 

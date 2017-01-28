@@ -50,7 +50,7 @@ class MWACatalog(Catalog):
     
 class IRCatalog(Catalog):
     # note that the given fits image must be in ortho projection, ie, with swarp
-    def __init__(self,dph_path='',se_path='',fits_path='',se_magzpt=20.56,racol=1,deccol=4,countscol=1,goodsrcs=None):
+    def __init__(self,dph_path='',se_path='',fits_path='',se_magzpt=20.56,racol=1,deccol=4,countscol=1,goodsrcs=None,acol=None,bcol=None):
         assert dph_path != '' or se_path != ''
         
         if dph_path != '':
@@ -73,9 +73,9 @@ class IRCatalog(Catalog):
             self.jy_all = 3631*10.**(-se_magzpt/2.5)*se_counts/30
             
             # RMS width
-#            if len(se_dat[0,:])>5:
-#                self.a = se_dat[:,5]
-#                self.b = se_dat[:,6]
+            if (acol is not None) and (bcol is not None):
+                self.a = se_dat[:,acol]
+                self.b = se_dat[:,bcol]
         
         if fits_path != '':
             self.identify_catalog_artifacts(fits_path)
