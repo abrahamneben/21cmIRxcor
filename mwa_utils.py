@@ -121,7 +121,8 @@ def apply_uniform_weighting(cube_xy,weights_xy,n,dtheta_rad,freqs):
 
     cube_uv_u = cube_uv / weights_uv
     cube_uniform_xy = fft_uv2xy(cube_uv_u, n, dtheta_rad)
-    cube_uniform_kelvin_xy = np.real(cube_uniform_xy) *jy*c**2/(2*kb*mean(freqs)**2)
+    
+    cube_uniform_kelvin_xy = np.real(cube_uniform_xy) *jy*c**2/(kb*mean(freqs)**2)
 
     return cube_uniform_kelvin_xy
 
