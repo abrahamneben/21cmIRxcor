@@ -1,0 +1,192 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">FUNCTION get_raw_spec, array, array2, pixx, pixy,$
+                       fname<span style="color: #333333">=</span>fname,$                    
+                       nbins<span style="color: #333333">=</span>nbins, $
+                       linear<span style="color: #333333">=</span>linear, $                       
+                       pad<span style="color: #333333">=</span>pad,$
+                       ibins<span style="color: #333333">=</span>ibins,$
+                       keep_all<span style="color: #333333">=</span>keep_all,$
+                       verbose<span style="color: #333333">=</span>verbose,$
+                       w<span style="color: #333333">=</span>w, $
+                       fft_<span style="color: #333333">=</span>fft_
+<span style="color: #888888">  </span>
+
+<span style="color: #888888">;+</span>
+<span style="color: #888888">;</span>
+<span style="color: #888888">; To compute the raw angular power spectrum of an image(s).</span>
+<span style="color: #888888">; pixsize should be in arcsec/pix.</span>
+<span style="color: #888888">;</span>
+<span style="color: #888888">; Ketron 12/2012</span>
+<span style="color: #888888">;</span>
+<span style="color: #888888">;-</span>
+
+
+COMPILE_OPT HIDDEN
+tstart <span style="color: #333333">=</span> <span style="color: #007020">systime</span>(<span style="color: #333333">/</span>sec)
+
+
+dim1 <span style="color: #333333">=</span> (<span style="color: #007020">size</span>(array))[<span style="color: #6600EE; font-weight: bold">1</span>]
+dim2 <span style="color: #333333">=</span> (<span style="color: #007020">size</span>(array))[<span style="color: #6600EE; font-weight: bold">2</span>]
+
+
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">~</span><span style="color: #007020">keyword_set</span>(nbins) <span style="color: #008800; font-weight: bold">then</span> nbins <span style="color: #333333">=</span> 42 
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">~</span><span style="color: #007020">keyword_set</span>(w) <span style="color: #008800; font-weight: bold">then</span> w <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(dim1, dim2) <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>.<span style="color: #6600EE; font-weight: bold">0</span>
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">n_elements</span>(pixy) <span style="color: #008800; font-weight: bold">eq</span> <span style="color: #6600EE; font-weight: bold">0</span> <span style="color: #008800; font-weight: bold">then</span> pixy <span style="color: #333333">=</span> pixx
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(ibins) <span style="color: #008800; font-weight: bold">then</span> nbins <span style="color: #333333">=</span> <span style="color: #007020">n_elements</span>(ibins)
+input_nb <span style="color: #333333">=</span> nbins
+
+<span style="color: #888888">;w[2400:2560,1510] = 0.0</span>
+<span style="color: #888888">;w[2475,1440:1561] = 0.0</span>
+
+<span style="color: #888888">;;- Second array size</span>
+<span style="color: #008800; font-weight: bold">if</span> ( (<span style="color: #007020">size</span>(array2))[<span style="color: #6600EE; font-weight: bold">1</span>] <span style="color: #008800; font-weight: bold">ne</span> dim1 ) <span style="color: #008800; font-weight: bold">or</span> $
+   ( (<span style="color: #007020">size</span>(array2))[<span style="color: #6600EE; font-weight: bold">2</span>] <span style="color: #008800; font-weight: bold">ne</span> dim2 ) <span style="color: #008800; font-weight: bold">then</span> $
+      <span style="color: #007020">message</span>, &quot;Arrays must be the same <span style="color: #007020">size</span>.&quot;
+
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(pad) <span style="color: #008800; font-weight: bold">then</span> <span style="color: #008800; font-weight: bold">begin</span>
+<span style="color: #888888">   ;;- Change the number of pixels slightly, for FFT speed.</span>
+<span style="color: #888888">;;- FFT running time is &quot;roughly proportional to the </span>
+<span style="color: #888888">;; total number of points in Array times the sum of </span>
+<span style="color: #888888">;; its prime factors.&quot; -- edit array sizes.</span>
+   old_dim1 <span style="color: #333333">=</span> dim1 &amp; old_dim2 <span style="color: #333333">=</span> dim2
+
+   factor, dim1, prime1, count1, <span style="color: #333333">/</span>quiet
+   n_prime1 <span style="color: #333333">=</span> <span style="color: #007020">n_elements</span>(prime1)
+   largest_prime1 <span style="color: #333333">=</span> prime1[n_prime1 <span style="color: #333333">-</span> <span style="color: #6600EE; font-weight: bold">1</span>]
+   WHILE prime1[n_prime1<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>] GT 15 DO BEGIN
+      dim1 <span style="color: #333333">-=</span> <span style="color: #6600EE; font-weight: bold">1</span>
+      factor, dim1, prime1, count1, <span style="color: #333333">/</span>quiet
+      n_prime1 <span style="color: #333333">=</span> <span style="color: #007020">n_elements</span>(prime1)
+   ENDWHILE
+
+<span style="color: #888888">;;- Second dimension</span>
+   factor, dim2, prime2, count2, <span style="color: #333333">/</span>quiet
+   n_prime2 <span style="color: #333333">=</span> <span style="color: #007020">n_elements</span>(prime2)
+   largest_prime2 <span style="color: #333333">=</span> prime2[n_prime2 <span style="color: #333333">-</span> <span style="color: #6600EE; font-weight: bold">1</span>]
+   WHILE prime2[n_prime2<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>] GT 15 DO BEGIN
+      dim2 <span style="color: #333333">-=</span> <span style="color: #6600EE; font-weight: bold">1</span>
+      factor, dim2, prime2, count2, <span style="color: #333333">/</span>quiet
+      n_prime2 <span style="color: #333333">=</span> <span style="color: #007020">n_elements</span>(prime2)
+   ENDWHILE
+   
+   d1 <span style="color: #333333">=</span> dim1 <span style="color: #333333">-</span> old_dim1
+   d2 <span style="color: #333333">=</span> dim2 <span style="color: #333333">-</span> old_dim2
+
+<span style="color: #888888">;;- Edit crop sizes.</span>
+   <span style="color: #007020">message</span>, &#39;removing &#39; <span style="color: #333333">+</span> strim(d1) <span style="color: #333333">+</span> &#39; pixel(s) to the first dimension&#39;<span style="color: #333333">+</span>$
+   &#39;<span style="color: #008800; font-weight: bold">and</span> &#39; <span style="color: #333333">+</span> strim(d2) <span style="color: #333333">+</span> &#39; pixel(s) to the second dimension.&#39;, <span style="color: #333333">/</span>INF
+   x1 <span style="color: #333333">=</span> dim1 <span style="color: #333333">-</span> d1   
+   y1 <span style="color: #333333">=</span> dim2 <span style="color: #333333">-</span> d2  
+
+   array <span style="color: #333333">=</span> array[<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span>dim1<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>,<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span>dim2<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>]
+   array2 <span style="color: #333333">=</span> array2[<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span>dim1<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>,<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span>dim2<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>]
+
+<span style="color: #008800; font-weight: bold">endif</span>
+
+
+
+<span style="color: #888888">;;- Check for NaNs -- this will screw up the FFT</span>
+nan <span style="color: #333333">=</span> <span style="color: #007020">where</span>(<span style="color: #007020">finite</span>(array) <span style="color: #008800; font-weight: bold">eq</span> <span style="color: #6600EE; font-weight: bold">0</span>)
+<span style="color: #008800; font-weight: bold">if</span> nan[<span style="color: #6600EE; font-weight: bold">0</span>] NE <span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span> <span style="color: #008800; font-weight: bold">then</span> <span style="color: #007020">message</span>, &#39;NaNs in the array need to be &#39; <span style="color: #333333">+</span> $
+                              &#39;incorporated into the mask.&#39;
+
+
+
+<span style="color: #888888">;;- Need to normalize (IDL returns 1/N*fft) and multiply by </span>
+<span style="color: #888888">;; sampling interval in radians.</span>
+dim1 <span style="color: #333333">=</span> (<span style="color: #007020">size</span>(array))[<span style="color: #6600EE; font-weight: bold">1</span>]
+dim2 <span style="color: #333333">=</span> (<span style="color: #007020">size</span>(array))[<span style="color: #6600EE; font-weight: bold">2</span>]
+ft2 <span style="color: #333333">=</span> w <span style="color: #333333">*</span> <span style="color: #007020">real_part</span>(<span style="color: #007020">fft</span>(array)<span style="color: #333333">*</span><span style="color: #007020">conj</span>(<span style="color: #007020">fft</span>(array2))) <span style="color: #333333">*</span> $
+      (!pi<span style="color: #333333">*</span>pixx<span style="color: #333333">/</span>180.<span style="color: #333333">/</span>3600.) <span style="color: #333333">*</span> (!pi<span style="color: #333333">*</span>pixy<span style="color: #333333">/</span>180.<span style="color: #333333">/</span>3600.) <span style="color: #333333">*</span> (<span style="color: #007020">float</span>(dim1)<span style="color: #333333">*</span><span style="color: #007020">float</span>(dim2))
+
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(fft_) <span style="color: #008800; font-weight: bold">then</span> <span style="color: #008800; font-weight: bold">begin</span>
+   ft2 <span style="color: #333333">=</span> <span style="color: #007020">shift</span>(ft2, dim1<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>, dim2<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>)
+   <span style="color: #007020">return</span>, ft2
+<span style="color: #008800; font-weight: bold">endif</span>
+
+
+<span style="color: #888888">;;- Binning</span>
+l <span style="color: #333333">=</span> get_l_modes(dim1, dim2, pixx, pixy)
+<span style="color: #888888">;message, &#39;Forcing max ell bin at 1e4&#39;,/inf </span>
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(linear) <span style="color: #008800; font-weight: bold">then</span> bins <span style="color: #333333">=</span> linbins(nbins, 900., <span style="color: #6600EE; font-weight: bold">6</span>.55e6) <span style="color: #008800; font-weight: bold">else</span> $
+   bins <span style="color: #333333">=</span> logbins(nbins, <span style="color: #007020">min</span>(l[<span style="color: #007020">where</span>(l <span style="color: #008800; font-weight: bold">gt</span> <span style="color: #6600EE; font-weight: bold">0</span>)]), <span style="color: #007020">max</span>(l));1e4
+<span style="color: #888888">;stop</span>
+<span style="color: #888888">;bins = [1534.0909, 64800.0, 83113.942, 129515.23 ]</span>
+<span style="color: #888888">;nbins=3</span>
+<span style="color: #888888">;stop</span>
+
+<span style="color: #888888">;min(l[where(l gt 0)])-100.</span>
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(ibins) <span style="color: #008800; font-weight: bold">then</span> bins <span style="color: #333333">=</span> ibins
+
+
+Cl <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(nbins<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>)
+lbins <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(nbins<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>)
+Nl <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(nbins<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>) ;<span style="color: #007020">total</span> number <span style="color: #008800; font-weight: bold">of</span> fourier elements per bin.
+bin_edges <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(nbins<span style="color: #333333">*</span><span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>)
+j <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0</span>
+<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0</span>, <span style="color: #007020">n_elements</span>(Cl) <span style="color: #333333">-</span> <span style="color: #6600EE; font-weight: bold">1</span> <span style="color: #008800; font-weight: bold">do</span> <span style="color: #008800; font-weight: bold">begin</span>
+   inside <span style="color: #333333">=</span> <span style="color: #007020">where</span>((l <span style="color: #008800; font-weight: bold">ge</span> bins[i]) <span style="color: #008800; font-weight: bold">and</span> (l <span style="color: #008800; font-weight: bold">le</span> bins[i<span style="color: #333333">+</span><span style="color: #6600EE; font-weight: bold">1</span>]), Nbeans)
+   Nl[i] <span style="color: #333333">=</span> Nbeans
+   <span style="color: #008800; font-weight: bold">if</span> inside[<span style="color: #6600EE; font-weight: bold">0</span>] <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span> <span style="color: #008800; font-weight: bold">then</span> <span style="color: #008800; font-weight: bold">begin</span>
+      ft2_in <span style="color: #333333">=</span> ft2[inside]
+      ft2_in <span style="color: #333333">=</span> ft2_in[<span style="color: #007020">where</span>(ft2_in <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #6600EE; font-weight: bold">0</span>)]
+      w_in <span style="color: #333333">=</span> w[inside]
+<span style="color: #888888">      </span>
+<span style="color: #888888">;      if min(ft2_in) lt 0 then begin</span>
+<span style="color: #888888">;         stop</span>
+<span style="color: #888888">;         ft2_in[where(ft2_in eq min(ft2_in))] *= -1</span>
+<span style="color: #888888">;      endif</span>
+
+      cl[i] <span style="color: #333333">=</span> <span style="color: #007020">total</span>(ft2_in) <span style="color: #333333">/</span> <span style="color: #007020">total</span>(w_in)
+
+      lbins[i] <span style="color: #333333">=</span> <span style="color: #007020">mean</span>([bins[i], bins[i<span style="color: #333333">+</span><span style="color: #6600EE; font-weight: bold">1</span>]])
+      bin_edges[j]<span style="color: #333333">=</span> bins[i]
+      bin_edges[j<span style="color: #333333">+</span><span style="color: #6600EE; font-weight: bold">1</span>] <span style="color: #333333">=</span> bins[i<span style="color: #333333">+</span><span style="color: #6600EE; font-weight: bold">1</span>]
+      j<span style="color: #333333">+=</span><span style="color: #6600EE; font-weight: bold">2</span>
+<span style="color: #888888">      ;print, &#39;Ninside = &#39;+ strim(Nbeans)+ &#39; at &#39;+strim(bins[i]) + &#39; and &#39;+strim(bins[i+1])</span>
+   <span style="color: #008800; font-weight: bold">endif</span> <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">begin</span>
+<span style="color: #888888">      ;print, &#39;Ninside = 0 at &#39;+strim(bins[i]) + &#39; and &#39;+strim(bins[i+1])</span>
+   endelse
+<span style="color: #008800; font-weight: bold">endfor</span>
+nonz <span style="color: #333333">=</span> <span style="color: #007020">where</span>((cl <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #6600EE; font-weight: bold">0</span>)); <span style="color: #008800; font-weight: bold">and</span> (Nl <span style="color: #008800; font-weight: bold">ge</span> 10)) ;<span style="color: #333333">&lt;----</span> REMOVING LOW ELL!!!!!!
+cl <span style="color: #333333">=</span> cl[nonz]
+l <span style="color: #333333">=</span> lbins[nonz]
+Nl <span style="color: #333333">=</span> Nl[nonz]
+<span style="color: #008800; font-weight: bold">if</span> (<span style="color: #007020">min</span>(nonz))[<span style="color: #6600EE; font-weight: bold">0</span>] <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #6600EE; font-weight: bold">0</span> <span style="color: #008800; font-weight: bold">then</span> bin_edges[<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span><span style="color: #007020">min</span>(nonz)<span style="color: #333333">*</span><span style="color: #6600EE; font-weight: bold">2</span><span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>]<span style="color: #333333">=</span><span style="color: #6600EE; font-weight: bold">0</span>
+bin_edges <span style="color: #333333">=</span> bin_edges[<span style="color: #007020">where</span>(bin_edges <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #6600EE; font-weight: bold">0</span>)]
+
+cl_struct <span style="color: #333333">=</span> { l<span style="color: #333333">:</span><span style="color: #007020">fltarr</span>(<span style="color: #007020">n_elements</span>(l)),$
+              Cl<span style="color: #333333">:</span><span style="color: #007020">fltarr</span>(<span style="color: #007020">n_elements</span>(Cl)),$
+              bin_edges<span style="color: #333333">:</span><span style="color: #007020">fltarr</span>(<span style="color: #007020">n_elements</span>(bin_edges)),$
+              dcl<span style="color: #333333">:</span><span style="color: #007020">fltarr</span>(<span style="color: #007020">n_elements</span>(cl)),$
+              Nl<span style="color: #333333">:</span><span style="color: #007020">fltarr</span>(<span style="color: #007020">n_elements</span>(l))}
+
+cl_struct.l <span style="color: #333333">=</span> l
+cl_struct.Cl <span style="color: #333333">=</span> Cl
+cl_struct.bin_edges <span style="color: #333333">=</span> bin_edges
+cl_struct.Nl <span style="color: #333333">=</span> Nl
+
+
+<span style="color: #888888">;;- Cosmic variance -&gt; dCl</span>
+fishdoggin <span style="color: #333333">=</span> <span style="color: #007020">where</span>((array <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #6600EE; font-weight: bold">0</span>) <span style="color: #008800; font-weight: bold">and</span> (array2 <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #6600EE; font-weight: bold">0</span>), Ngood)
+pix <span style="color: #333333">=</span> <span style="color: #007020">sqrt</span>(pixx<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">+</span> pixy<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span>)
+fsky <span style="color: #333333">=</span> <span style="color: #007020">double</span>(Ngood) <span style="color: #333333">*</span> (pix<span style="color: #333333">/</span>3600.)<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">*</span> (!pi<span style="color: #333333">/</span>180.)<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span> ;sr
+delta_l <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(<span style="color: #007020">n_elements</span>(l))
+j <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0</span>
+<span style="color: #008800; font-weight: bold">for</span> i <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0</span>, <span style="color: #007020">n_elements</span>(bin_edges) <span style="color: #333333">-</span> <span style="color: #6600EE; font-weight: bold">2</span>, <span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #008800; font-weight: bold">do</span> <span style="color: #008800; font-weight: bold">begin</span>
+   delta_l[j] <span style="color: #333333">=</span> bin_edges[i<span style="color: #333333">+</span><span style="color: #6600EE; font-weight: bold">1</span>]<span style="color: #333333">-</span>bin_edges[i]
+   j<span style="color: #333333">+=</span><span style="color: #6600EE; font-weight: bold">1</span>
+<span style="color: #008800; font-weight: bold">endfor</span>
+fsky <span style="color: #333333">/=</span> (<span style="color: #6600EE; font-weight: bold">4</span><span style="color: #333333">*</span>!pi) ;fraction <span style="color: #008800; font-weight: bold">of</span> <span style="color: #007020">total</span> sky. 
+cosmic_variance <span style="color: #333333">=</span> <span style="color: #007020">sqrt</span>( <span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">/</span> (((<span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">*</span> l) <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>) <span style="color: #333333">*</span> fsky <span style="color: #333333">*</span> delta_l))
+cl_struct.dcl <span style="color: #333333">=</span> cosmic_variance ;<span style="color: #333333">*</span> cl
+
+
+
+t_tot <span style="color: #333333">=</span> (<span style="color: #007020">systime</span>(<span style="color: #333333">/</span>sec) <span style="color: #333333">-</span> tstart) <span style="color: #333333">/</span> 60.
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(verbose) <span style="color: #008800; font-weight: bold">then</span> <span style="color: #007020">message</span>, strim(t_tot, l<span style="color: #333333">=</span><span style="color: #6600EE; font-weight: bold">4</span>) <span style="color: #333333">+</span> &#39; minutes.&#39;, <span style="color: #333333">/</span>INF 
+nbins <span style="color: #333333">=</span> input_nb
+<span style="color: #007020">return</span>, cl_struct
+
+
+<span style="color: #008800; font-weight: bold">end</span>
+</pre></div>

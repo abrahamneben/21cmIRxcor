@@ -1,0 +1,70 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">function</span> get_l_modes, d1, d2, pixx, pixy, $
+                      pix<span style="color: #333333">=</span>pix, $
+                      verbose<span style="color: #333333">=</span>verbose, $
+                      ret_lx<span style="color: #333333">=</span>ret_lx,$
+                      ret_ly<span style="color: #333333">=</span>ret_ly
+
+
+<span style="color: #888888">;+</span>
+<span style="color: #888888">;</span>
+<span style="color: #888888">; Returns l-modes for dimensions [d1, d2]. Pixscale in arcmin/pix.</span>
+<span style="color: #888888">;</span>
+<span style="color: #888888">;-</span>
+
+
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">~</span><span style="color: #007020">keyword_set</span>(verbose) <span style="color: #008800; font-weight: bold">then</span> verbose <span style="color: #333333">=</span> <span style="color: #6600EE; font-weight: bold">0</span>
+
+
+<span style="color: #888888">;;- Get fourier modes for d1</span>
+n <span style="color: #333333">=</span> <span style="color: #007020">float</span>(d1)
+l <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(n)
+l1 <span style="color: #333333">=</span> <span style="color: #007020">findgen</span>(<span style="color: #007020">ceil</span>(n<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>))
+l2 <span style="color: #333333">=</span> (<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>) <span style="color: #333333">*</span> <span style="color: #007020">reverse</span>( <span style="color: #007020">findgen</span>(<span style="color: #007020">floor</span>(n<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>)) <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>)
+l[<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span>(<span style="color: #007020">n_elements</span>(l2)<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>)] <span style="color: #333333">=</span> l2
+l[<span style="color: #007020">n_elements</span>(l2)<span style="color: #333333">:</span>(<span style="color: #007020">n_elements</span>(l)<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>)] <span style="color: #333333">=</span> l1
+lx <span style="color: #333333">=</span> l <span style="color: #333333">/</span> (n <span style="color: #333333">/</span> <span style="color: #6600EE; font-weight: bold">2</span>)
+
+<span style="color: #888888">;;- Check l was filled properly.</span>
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">n_elements</span>(l1) <span style="color: #333333">+</span> <span style="color: #007020">n_elements</span>(l2) <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #007020">n_elements</span>(lx) <span style="color: #008800; font-weight: bold">then</span> $
+   <span style="color: #007020">message</span>,&#39;numel(l1) <span style="color: #333333">+</span> numel(l2) !<span style="color: #333333">=</span> numel(lx)&#39;
+
+
+<span style="color: #888888">;;- Get fourier modes for d2</span>
+n <span style="color: #333333">=</span> <span style="color: #007020">float</span>(d2)
+l <span style="color: #333333">=</span> <span style="color: #007020">fltarr</span>(n)
+l1 <span style="color: #333333">=</span> <span style="color: #007020">findgen</span>(<span style="color: #007020">ceil</span>(n<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>))
+l2 <span style="color: #333333">=</span> (<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>) <span style="color: #333333">*</span> <span style="color: #007020">reverse</span>( <span style="color: #007020">findgen</span>(<span style="color: #007020">floor</span>(n<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>)) <span style="color: #333333">+</span> <span style="color: #6600EE; font-weight: bold">1</span>)
+l[<span style="color: #6600EE; font-weight: bold">0</span><span style="color: #333333">:</span>(<span style="color: #007020">n_elements</span>(l2)<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>)] <span style="color: #333333">=</span> l2
+l[<span style="color: #007020">n_elements</span>(l2)<span style="color: #333333">:</span>(<span style="color: #007020">n_elements</span>(l)<span style="color: #333333">-</span><span style="color: #6600EE; font-weight: bold">1</span>)] <span style="color: #333333">=</span> l1
+ly <span style="color: #333333">=</span> l <span style="color: #333333">/</span> (n <span style="color: #333333">/</span> <span style="color: #6600EE; font-weight: bold">2</span>)
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">n_elements</span>(l1) <span style="color: #333333">+</span> <span style="color: #007020">n_elements</span>(l2) <span style="color: #008800; font-weight: bold">ne</span> <span style="color: #007020">n_elements</span>(ly) <span style="color: #008800; font-weight: bold">then</span> $
+   <span style="color: #007020">message</span>,&#39;numel(l1) <span style="color: #333333">+</span> numel(l2) !<span style="color: #333333">=</span> numel(ly)&#39;
+
+
+<span style="color: #888888">;;- Make grid from l-modes</span>
+lx <span style="color: #333333">=</span> <span style="color: #007020">shift</span>(lx, <span style="color: #007020">ceil</span>(d1<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>.))
+ly <span style="color: #333333">=</span> <span style="color: #007020">shift</span>(ly, <span style="color: #007020">ceil</span>(d2<span style="color: #333333">/</span><span style="color: #6600EE; font-weight: bold">2</span>.))
+meshgrid, lx, ly, grid_lx, grid_ly
+
+
+<span style="color: #888888">;;- l =&gt; 2pi/radian or /pix</span>
+IF <span style="color: #007020">keyword_set</span>(pix) THEN BEGIN
+   l <span style="color: #333333">=</span> <span style="color: #007020">sqrt</span>(grid_lx<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">+</span> grid_ly<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span>) 
+   <span style="color: #007020">message</span>, &#39;ell (<span style="color: #333333">/</span>pix)&#39;, <span style="color: #333333">/</span>INF
+ENDIF ELSE BEGIN
+   grid_lx <span style="color: #333333">*=</span> <span style="color: #6600EE; font-weight: bold">2</span>. <span style="color: #333333">*</span> !pi <span style="color: #333333">/</span> (pixx <span style="color: #333333">/</span> 3600. <span style="color: #333333">*</span> !pi <span style="color: #333333">/</span> 180.) <span style="color: #333333">/</span> <span style="color: #6600EE; font-weight: bold">2</span>.
+   grid_ly <span style="color: #333333">*=</span> <span style="color: #6600EE; font-weight: bold">2</span>. <span style="color: #333333">*</span> !pi <span style="color: #333333">/</span> (pixy <span style="color: #333333">/</span> 3600. <span style="color: #333333">*</span> !pi <span style="color: #333333">/</span> 180.) <span style="color: #333333">/</span> <span style="color: #6600EE; font-weight: bold">2</span>.
+<span style="color: #888888">  ; extra factor of 1/2 for nyquist limit, bro.</span>
+<span style="color: #888888">                                ;grid_lx /= (pixscale * !pi / 180.)</span>
+<span style="color: #888888">                                ;grid_ly /= (pixscale * !pi / 180.)</span>
+   l <span style="color: #333333">=</span> <span style="color: #007020">sqrt</span>(grid_lx<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span> <span style="color: #333333">+</span> grid_ly<span style="color: #333333">^</span><span style="color: #6600EE; font-weight: bold">2</span>)
+   <span style="color: #008800; font-weight: bold">if</span> verbose <span style="color: #008800; font-weight: bold">then</span> <span style="color: #007020">message</span>, &#39;ell [<span style="color: #6600EE; font-weight: bold">2</span> pi<span style="color: #333333">/</span>theta] in units (<span style="color: #6600EE; font-weight: bold">1</span><span style="color: #333333">/</span>rad)&#39;, <span style="color: #333333">/</span>INF
+ENDELSE
+
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(ret_lx) <span style="color: #008800; font-weight: bold">then</span> <span style="color: #007020">return</span>, lx
+<span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">keyword_set</span>(ret_ly) <span style="color: #008800; font-weight: bold">then</span> <span style="color: #007020">return</span>, ly
+
+RETURN, l
+
+END
+</pre></div>
